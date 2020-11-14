@@ -195,7 +195,7 @@
       "array": [
         0,
         0,
-        554.2562584220408,
+        326.59983040220646,
         0,
         0,
         0,
@@ -2679,7 +2679,7 @@
       "__id__": 54
     },
     "_enabled": true,
-    "sceneName": "startScene",
+    "sceneName": "inGameScene",
     "_id": "9dBX8KRhtHyri3rPQr47eu"
   }
 ]

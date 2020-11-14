@@ -50,8 +50,6 @@ cc.Class({
         let handoutCard = cc.sys.localStorage.getItem("handoutCard");
         handoutCard = JSON.parse(handoutCard);
 
-        console.log("handoutCard:", handoutCard);
-
         let playerCard = handoutCard[this.playerIndex];
         let thisCard = playerCard[this.cardIndex];
         this.setCard(thisCard.number, this[thisCard.shape], cc.Color[thisCard.color])
