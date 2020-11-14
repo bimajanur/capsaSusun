@@ -21,7 +21,7 @@ cc.Class({
         // remove the item of the key (username)
         cc.sys.localStorage.removeItem("playerString");
         cc.sys.localStorage.removeItem("playerColor");
-        // cc.sys.localStorage.clear();
+        cc.sys.localStorage.clear();
 
     },
 

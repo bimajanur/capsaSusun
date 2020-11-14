@@ -22,7 +22,6 @@ cc.Class({
             .to(0.1, { position: cc.v2(this.node.position.x, gotoYA) })
             .to(0.1, { position: cc.v2(this.node.position.x, gotoYB) })
             .start()
-        
 
         cc.director.loadScene(this.sceneName);
     },
