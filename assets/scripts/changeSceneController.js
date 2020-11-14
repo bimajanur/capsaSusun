@@ -14,7 +14,6 @@ cc.Class({
     },
 
     onClick (e) {
-        console.log("mouse clicked", e.currentTarget);
         e.bubbles = false;
 
         cc.director.loadScene(this.sceneName);
