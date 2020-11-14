@@ -30,7 +30,7 @@ cc.Class({
         let selectedColorLabelController = this.buttonController.getComponent("selectedColorLabelController");
         selectedColorLabelController.changeText(this.myTextColor, this.myColor);
         
-        // save to localStorage .toHEX("#rrggbb")
+        // save to localStorage
         cc.sys.localStorage.setItem("playerString", this.myTextColor);
         cc.sys.localStorage.setItem("playerColor", this.myColor.toHEX("#rrggbb"));
 

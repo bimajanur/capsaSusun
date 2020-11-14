@@ -1,4 +1,4 @@
-const cardHandler = require("./lib/cardHandler");
+const cardHandler = require("./lib/cardDealerHandler");
 
 cc.Class({
     extends: cc.Component,
