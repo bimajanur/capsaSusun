@@ -15,6 +15,14 @@ cc.Class({
 
     onClick (e) {
         e.bubbles = false;
+        
+        let gotoYA = this.node.position.y - 10;
+        let gotoYB = this.node.position.y + 10;
+        cc.tween(this.node)
+            .to(0.1, { position: cc.v2(this.node.position.x, gotoYA) })
+            .to(0.1, { position: cc.v2(this.node.position.x, gotoYB) })
+            .start()
+        
 
         cc.director.loadScene(this.sceneName);
     },
