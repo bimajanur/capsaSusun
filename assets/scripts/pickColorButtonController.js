@@ -18,7 +18,7 @@ cc.Class({
     onLoad () {
         this.node.on(cc.Node.EventType.MOUSE_DOWN, this.onClick, this);
         
-        // remove the item of the key (username)
+        // remove the item of the key
         cc.sys.localStorage.removeItem("playerString");
         cc.sys.localStorage.removeItem("playerColor");
         cc.sys.localStorage.clear();

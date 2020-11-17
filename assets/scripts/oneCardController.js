@@ -55,8 +55,6 @@ cc.Class({
         let playerCard = handoutCard[this.playerIndex];
         let thisCard = playerCard[this.cardIndex];
         this.setCard(thisCard.number, this[thisCard.shape], cc.Color[thisCard.color]);
-
-        this.node.on(cc.Node.EventType.MOUSE_DOWN, this.onClick, this);
     },
 
     setCard(number, shape, color) {
@@ -65,35 +63,4 @@ cc.Class({
         this.cardNumberNode.color = color;
     },
 
-    onClick () {
-        console.log("selected card index:", this.cardIndex);
-
-        // set position if clicked, set back to initial position if clicked twice
-        let gotoY = this.selected? this.node.position.y - 10: this.node.position.y + 10;
-        cc.tween(this.node)
-            .to(0.1, { position: cc.v2(this.node.position.x, gotoY) })
-            .start()
-
-        // get data from localStorage
-        let selectedCard = cc.sys.localStorage.getItem("selectedCard");
-
-        selectedCard = selectedCard? JSON.parse(selectedCard) : [];
-
-        // let processedCardArr = [];
-        // if(!this.selected){
-        //     // add to localStorage if not existed
-        //     processedCardArr = [this.cardIndex, ...selectedCard];
-        //     cc.sys.localStorage.setItem("selectedCard", JSON.stringify(processedCardArr));
-        // } else {
-        //     // remove from localStorage if not existed
-        //     var processedCardArr = selectedCard.filter((value)=>{ 
-        //         return value === this.cardIndex;
-        //     });
-
-        //     cc.sys.localStorage.setItem("selectedCard", JSON.stringify(processedCardArr));
-        // } 
-        // console.log("processedCardArr:", processedCardArr);
-
-        this.selected = this.selected? false : true;
-    },
 });
