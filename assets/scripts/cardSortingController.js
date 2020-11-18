@@ -20,33 +20,32 @@ cc.Class({
         // e.stopPropagation();
         cc.log("selected place index:", this.placeIndex);
         
-        // get selectedCard
-        let selectedCard = cc.sys.localStorage.getItem("selectedCard");
-        selectedCard = selectedCard? JSON.parse(selectedCard) : [];
+        // get selectedIdxCard
+        let selectedIdxCard = cc.sys.localStorage.getItem("selectedIdxCard");
+        selectedIdxCard = selectedIdxCard? JSON.parse(selectedIdxCard) : [];
 
-        // get player index
-        let playerIndex = 0;
+        // // get player index
+        // let playerIndex = 0;
 
-        // get player card
-        let handoutCard = cc.sys.localStorage.getItem("handoutCard");
-        handoutCard = JSON.parse(handoutCard);
-        let playerCard = handoutCard[playerIndex];
+        // // get player card
+        // let handoutCard = cc.sys.localStorage.getItem("handoutCard");
+        // handoutCard = JSON.parse(handoutCard);
+        // let playerCard = handoutCard[playerIndex];
 
-        // getPlacedcard
-        let placedCard = cc.sys.localStorage.getItem("placedCard");
-        placedCard = placedCard ? JSON.parse(placedCard) : [];
+        // get placedIdxCard
+        let placedIdxCard = cc.sys.localStorage.getItem("placedIdxCard");
+        placedIdxCard = placedIdxCard ? JSON.parse(placedIdxCard) : [];
         
         let startPlaceIndex = this.placeIndex;
-        for(let i = 0; i < selectedCard.length; i++){
-            // get selectedCardDetail
-            let selectedCardDetail = playerCard[selectedCard[i]];
+        for(let i = 0; i < selectedIdxCard.length; i++){
+            // // get selectedCardDetail
+            // let selectedCardDetail = playerCard[selectedIdxCard[i]];
             
-            // simpan penghuni sebelumnya 
-            let penghuniSebelumnya = placedCard[idPos] ? selectedCard[i] : undefined; 
-                        
-            // put selectedCardDetail to placedCard
             let idPos = startPlaceIndex > 12 ? startPlaceIndex - 13 : startPlaceIndex;
-            placedCard[idPos] = selectedCardDetail;
+            
+            // simpan penghuni sebelumnya, dan replace dengan yang baru 
+            let penghuniSebelumnya = placedIdxCard[idPos] ? placedIdxCard[idPos] : undefined; 
+            placedIdxCard[idPos] = selectedIdxCard[i];
 
             // get position of place card
             let placeCardNode = cc.find("Canvas/sortedDeck/cardPlace" + (idPos + 1));
@@ -54,7 +53,7 @@ cc.Class({
             let gotoY = placeCardNode.position.y;
             
             // move card to place card
-            let movedCardNode = cc.find("Canvas/cardDeck/card" + (selectedCard[i] + 1));
+            let movedCardNode = cc.find("Canvas/cardDeck/card" + (selectedIdxCard[i] + 1));
             cc.tween(movedCardNode)
                 .to(0.1, { position: cc.v2(gotoX, gotoY) })
                 .start();
@@ -63,26 +62,27 @@ cc.Class({
             movedCardNode.oneCard = movedCardNode.getComponent("oneCardController");
             movedCardNode.oneCard.selected = false;
 
-            cc.log("penghuniSebelumnya:", penghuniSebelumnya);
-            // //handle kartu bertumpuk di placeCard, kembalikan posisi ke original
-            // if(penghuniSebelumnya){
-            //     let stackCardNode = cc.find("Canvas/cardDeck/card" + (penghuniSebelumnya + 1));
-            //     cc.log("penghuniSebelumnya:", stackCardNode);
-            //     let originalPosX = stackCardNode.oneCard.originalPosX;
-            //     let originalPosY = stackCardNode.oneCard.originalPosY;
-            //     cc.tween(stackCardNode)
-            //         .to(0.1, { position: cc.v2(originalPosX, originalPosY) })
-            //         .start();
-            // }
+            //handle kartu bertumpuk di placeCard, kembalikan posisi ke original
+            if(penghuniSebelumnya){
+                let stackCardNode = cc.find("Canvas/cardDeck/card" + (penghuniSebelumnya + 1));
+                let originalPosX = stackCardNode.oneCard.originalPosX;
+                let originalPosY = stackCardNode.oneCard.originalPosY;
+                cc.tween(stackCardNode)
+                    .to(0.1, { position: cc.v2(originalPosX, originalPosY) })
+                    .start();
+            }
 
             startPlaceIndex++;
         }
             
-        // empty `selectedCard` localStorage
-        cc.sys.localStorage.removeItem("selectedCard");
+        // empty `selectedIdxCard` localStorage
+        cc.sys.localStorage.removeItem("selectedIdxCard");
 
-        // save placedCard to localStorage
-        cc.sys.localStorage.setItem("placedCard", JSON.stringify(placedCard));
+        // save placedIdxCard to localStorage
+        cc.log("placedIdxCard", placedIdxCard);
+        cc.sys.localStorage.setItem("placedIdxCard", JSON.stringify(placedIdxCard));
+        
+        // determined rank card arrangement
         
     },
 });

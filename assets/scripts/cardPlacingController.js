@@ -24,15 +24,15 @@ cc.Class({
             .start();
         
         // get saved data from localStorage
-        let selectedCard = cc.sys.localStorage.getItem("selectedCard");
-        selectedCard = selectedCard? JSON.parse(selectedCard) : [];
+        let selectedIdxCard = cc.sys.localStorage.getItem("selectedIdxCard");
+        selectedIdxCard = selectedIdxCard? JSON.parse(selectedIdxCard) : [];
 
         // generate new array for saving
         let processedCardArr = [];
         if(!thisCard.selected){
             
             // add to array if not existed in localStorage
-            processedCardArr = [...selectedCard, thisCard.cardIndex];
+            processedCardArr = [...selectedIdxCard, thisCard.cardIndex];
 
             if(processedCardArr.length>5){
                 
@@ -50,12 +50,12 @@ cc.Class({
             
         } else {
             // remove from array if not existed in localStorage
-            processedCardArr = selectedCard.filter((value)=>{ 
+            processedCardArr = selectedIdxCard.filter((value)=>{ 
                 return value != thisCard.cardIndex;
             });
         }
         // save data to localStorage
-        cc.sys.localStorage.setItem("selectedCard", JSON.stringify(processedCardArr));
+        cc.sys.localStorage.setItem("selectedIdxCard", JSON.stringify(processedCardArr));
         
         thisCard.selected = thisCard.selected? false : true;
     },

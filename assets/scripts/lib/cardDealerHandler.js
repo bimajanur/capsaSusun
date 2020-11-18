@@ -50,8 +50,4 @@ module.exports = {
         return splittedDeck;
     },
 
-    sortHandedCard: (handCard) => {
-        let handCard
-    },
-
 }

@@ -7,9 +7,9 @@ cc.Class({
 
     onLoad () {
         // remove the item of the key
-        cc.sys.localStorage.removeItem("selectedCard");
-        cc.sys.localStorage.removeItem("placedCard");
-        cc.sys.localStorage.removeItem("handedCard");
+        cc.sys.localStorage.removeItem("handedIdxCard");
+        cc.sys.localStorage.removeItem("selectedIdxCard");
+        cc.sys.localStorage.removeItem("placedIdxCard");
         
         let cardDeck = cardHandler.getCardDeck(cardHandler.cardShapes, cardHandler.cardNumbers);
         let shuffledCardDeck = cardHandler.shuffleDeck(cardDeck);
