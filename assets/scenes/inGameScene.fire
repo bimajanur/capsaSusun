@@ -1520,8 +1520,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -269.588,
-        -114.674,
+        -440,
+        -245,
         0,
         0,
         0,
@@ -1547,7 +1547,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "cardPlace1A",
+    "_name": "cardPlace1",
     "_objFlags": 0,
     "_parent": {
       "__id__": 32
@@ -1578,15 +1578,15 @@
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
+      "x": 0,
+      "y": 0
     },
     "_trs": {
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        132.062,
-        292.362,
+        280.138,
+        385.384,
         0,
         0,
         0,
@@ -1655,7 +1655,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "cardPlace1B",
+    "_name": "cardPlace2",
     "_objFlags": 0,
     "_parent": {
       "__id__": 32
@@ -1686,15 +1686,15 @@
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
+      "x": 0,
+      "y": 0
     },
     "_trs": {
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        202.062,
-        292.362,
+        350.138,
+        385.384,
         0,
         0,
         0,
@@ -1763,7 +1763,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "cardPlace1C",
+    "_name": "cardPlace3",
     "_objFlags": 0,
     "_parent": {
       "__id__": 32
@@ -1794,15 +1794,15 @@
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
+      "x": 0,
+      "y": 0
     },
     "_trs": {
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        272.062,
-        292.362,
+        420.138,
+        385.384,
         0,
         0,
         0,
@@ -1871,7 +1871,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "cardPlace2A",
+    "_name": "cardPlace4",
     "_objFlags": 0,
     "_parent": {
       "__id__": 32
@@ -1902,15 +1902,15 @@
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
+      "x": 0,
+      "y": 0
     },
     "_trs": {
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        132.062,
-        192.362,
+        280.138,
+        285.384,
         0,
         0,
         0,
@@ -1979,7 +1979,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "cardPlace2B",
+    "_name": "cardPlace5",
     "_objFlags": 0,
     "_parent": {
       "__id__": 32
@@ -2010,15 +2010,15 @@
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
+      "x": 0,
+      "y": 0
     },
     "_trs": {
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        202.062,
-        192.362,
+        350.138,
+        285.384,
         0,
         0,
         0,
@@ -2087,7 +2087,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "cardPlace2C",
+    "_name": "cardPlace6",
     "_objFlags": 0,
     "_parent": {
       "__id__": 32
@@ -2118,15 +2118,15 @@
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
+      "x": 0,
+      "y": 0
     },
     "_trs": {
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        272.062,
-        192.362,
+        420.138,
+        285.384,
         0,
         0,
         0,
@@ -2195,7 +2195,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "cardPlace2D",
+    "_name": "cardPlace7",
     "_objFlags": 0,
     "_parent": {
       "__id__": 32
@@ -2226,15 +2226,15 @@
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
+      "x": 0,
+      "y": 0
     },
     "_trs": {
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        342.062,
-        192.362,
+        490.138,
+        285.384,
         0,
         0,
         0,
@@ -2303,7 +2303,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "cardPlace2E",
+    "_name": "cardPlace8",
     "_objFlags": 0,
     "_parent": {
       "__id__": 32
@@ -2334,15 +2334,15 @@
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
+      "x": 0,
+      "y": 0
     },
     "_trs": {
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        412.062,
-        192.362,
+        560.138,
+        285.384,
         0,
         0,
         0,
@@ -2411,7 +2411,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "cardPlace3A",
+    "_name": "cardPlace9",
     "_objFlags": 0,
     "_parent": {
       "__id__": 32
@@ -2442,15 +2442,15 @@
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
+      "x": 0,
+      "y": 0
     },
     "_trs": {
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        132.062,
-        92.362,
+        280.138,
+        185.384,
         0,
         0,
         0,
@@ -2519,7 +2519,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "cardPlace3B",
+    "_name": "cardPlace10",
     "_objFlags": 0,
     "_parent": {
       "__id__": 32
@@ -2550,15 +2550,15 @@
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
+      "x": 0,
+      "y": 0
     },
     "_trs": {
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        202.062,
-        92.362,
+        350.138,
+        185.384,
         0,
         0,
         0,
@@ -2627,7 +2627,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "cardPlace3C",
+    "_name": "cardPlace11",
     "_objFlags": 0,
     "_parent": {
       "__id__": 32
@@ -2658,15 +2658,15 @@
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
+      "x": 0,
+      "y": 0
     },
     "_trs": {
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        272.062,
-        92.362,
+        420.138,
+        185.384,
         0,
         0,
         0,
@@ -2735,7 +2735,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "cardPlace3D",
+    "_name": "cardPlace12",
     "_objFlags": 0,
     "_parent": {
       "__id__": 32
@@ -2766,15 +2766,15 @@
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
+      "x": 0,
+      "y": 0
     },
     "_trs": {
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        342.062,
-        92.362,
+        490.138,
+        185.384,
         0,
         0,
         0,
@@ -2843,7 +2843,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "cardPlace3E",
+    "_name": "cardPlace13",
     "_objFlags": 0,
     "_parent": {
       "__id__": 32
@@ -2874,15 +2874,15 @@
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
+      "x": 0,
+      "y": 0
     },
     "_trs": {
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        412.062,
-        92.362,
+        560.138,
+        185.384,
         0,
         0,
         0,
