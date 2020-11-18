@@ -11,9 +11,9 @@ cc.Class({
         this.node.on(cc.Node.EventType.MOUSE_DOWN, this.onClick, this);
     },
 
-    onClick () {
+    onClick (e) {
+        e.stopPropagation();
         var thisCard = this.getComponent("oneCardController");
-
         cc.log("selected card index:", thisCard.cardIndex);
 
         // set position if clicked, set back to initial position if clicked twice

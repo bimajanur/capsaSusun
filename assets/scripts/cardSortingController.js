@@ -16,7 +16,8 @@ cc.Class({
         this.node.on(cc.Node.EventType.MOUSE_DOWN, this.onClick, this);
     },
 
-    onClick () {
+    onClick (e) {
+        // e.stopPropagation();
         cc.log("selected place index:", this.placeIndex);
         
         // get selectedCard
@@ -62,16 +63,17 @@ cc.Class({
             movedCardNode.oneCard = movedCardNode.getComponent("oneCardController");
             movedCardNode.oneCard.selected = false;
 
-            //handle kartu bertumpuk di placeCard, kembalikan posisi ke original
             cc.log("penghuniSebelumnya:", penghuniSebelumnya);
-            if(penghuniSebelumnya){
-                let stackCardNode = cc.find("Canvas/cardDeck/card" + (penghuniSebelumnya + 1));
-                let originalPosX = stackCardNode.oneCard.originalPosX;
-                let originalPosY = stackCardNode.oneCard.originalPosY;
-                cc.tween(stackCardNode)
-                    .to(0.1, { position: cc.v2(originalPosX, originalPosY) })
-                    .start();
-            }
+            // //handle kartu bertumpuk di placeCard, kembalikan posisi ke original
+            // if(penghuniSebelumnya){
+            //     let stackCardNode = cc.find("Canvas/cardDeck/card" + (penghuniSebelumnya + 1));
+            //     cc.log("penghuniSebelumnya:", stackCardNode);
+            //     let originalPosX = stackCardNode.oneCard.originalPosX;
+            //     let originalPosY = stackCardNode.oneCard.originalPosY;
+            //     cc.tween(stackCardNode)
+            //         .to(0.1, { position: cc.v2(originalPosX, originalPosY) })
+            //         .start();
+            // }
 
             startPlaceIndex++;
         }
