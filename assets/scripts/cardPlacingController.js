@@ -32,7 +32,7 @@ cc.Class({
         if(!thisCard.selected){
             
             // add to array if not existed in localStorage
-            processedCardArr = [thisCard.cardIndex, ...selectedCard];
+            processedCardArr = [...selectedCard, thisCard.cardIndex];
 
             if(processedCardArr.length>5){
                 
@@ -43,9 +43,9 @@ cc.Class({
                     .to(0.1, { position: cc.v2(this.earliestCard.position.x, this.earliestCard.position.y - 10) })
                     .start();
                 this.earliestCard.oneCard.selected = false;
-                
+
                 // remove earliest item
-                processedCardArr.pop();
+                processedCardArr.shift();
             }
             
         } else {

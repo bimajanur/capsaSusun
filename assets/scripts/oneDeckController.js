@@ -17,5 +17,6 @@ cc.Class({
           
         // remove the item of the key
         cc.sys.localStorage.removeItem("selectedCard");
+        cc.sys.localStorage.removeItem("placedCard");
     },
 });

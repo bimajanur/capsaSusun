@@ -55,6 +55,10 @@ cc.Class({
         let playerCard = handoutCard[this.playerIndex];
         let thisCard = playerCard[this.cardIndex];
         this.setCard(thisCard.number, this[thisCard.shape], cc.Color[thisCard.color]);
+
+        //set default position
+        this.originalPosX = this.node.position.x;
+        this.originalPosY = this.node.position.y;
     },
 
     setCard(number, shape, color) {

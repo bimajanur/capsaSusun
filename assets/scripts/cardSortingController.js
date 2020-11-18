@@ -35,17 +35,52 @@ cc.Class({
         let placedCard = cc.sys.localStorage.getItem("placedCard");
         placedCard = placedCard ? JSON.parse(placedCard) : [];
         
-        // get selectedCardDetail
-        let selectedCardDetail = playerCard[selectedCard[0]];
-        cc.log("selectedCardDetail:", selectedCardDetail);
+        let startPlaceIndex = this.placeIndex;
+        for(let i = 0; i < selectedCard.length; i++){
+            // get selectedCardDetail
+            let selectedCardDetail = playerCard[selectedCard[i]];
+            
+            // simpan penghuni sebelumnya 
+            let penghuniSebelumnya = placedCard[idPos] ? selectedCard[i] : undefined; 
+                        
+            // put selectedCardDetail to placedCard
+            let idPos = startPlaceIndex > 12 ? startPlaceIndex - 13 : startPlaceIndex;
+            placedCard[idPos] = selectedCardDetail;
 
-        // put selectedCardDetail to placedCard
-        placedCard[this.placeIndex] = selectedCardDetail;
-        cc.log("placedCard:", placedCard);
+            // get position of place card
+            let placeCardNode = cc.find("Canvas/sortedDeck/cardPlace" + (idPos + 1));
+            let gotoX = placeCardNode.position.x;
+            let gotoY = placeCardNode.position.y;
+            
+            // move card to place card
+            let movedCardNode = cc.find("Canvas/cardDeck/card" + (selectedCard[i] + 1));
+            cc.tween(movedCardNode)
+                .to(0.1, { position: cc.v2(gotoX, gotoY) })
+                .start();
+
+            // set selected false for moved card
+            movedCardNode.oneCard = movedCardNode.getComponent("oneCardController");
+            movedCardNode.oneCard.selected = false;
+
+            //handle kartu bertumpuk di placeCard, kembalikan posisi ke original
+            cc.log("penghuniSebelumnya:", penghuniSebelumnya);
+            if(penghuniSebelumnya){
+                let stackCardNode = cc.find("Canvas/cardDeck/card" + (penghuniSebelumnya + 1));
+                let originalPosX = stackCardNode.oneCard.originalPosX;
+                let originalPosY = stackCardNode.oneCard.originalPosY;
+                cc.tween(stackCardNode)
+                    .to(0.1, { position: cc.v2(originalPosX, originalPosY) })
+                    .start();
+            }
+
+            startPlaceIndex++;
+        }
+            
+        // empty `selectedCard` localStorage
+        cc.sys.localStorage.removeItem("selectedCard");
 
         // save placedCard to localStorage
         cc.sys.localStorage.setItem("placedCard", JSON.stringify(placedCard));
         
-
     },
 });
