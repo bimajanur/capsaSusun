@@ -19,5 +19,22 @@ cc.Class({
         
         // save to localStorage
         cc.sys.localStorage.setItem("handoutCard", JSON.stringify(handoutCard));
+
+        //handling handout animation
+        for(let i = 0; i < 13; i++) {
+            cardNode = this.node.getChildByName("card" + (i + 1));
+            cardNode.oneCard = cardNode.getComponent("oneCardController");
+
+            let gotoX = 55 + (i * 55);
+            let gotoY = 50;
+            cc.tween(cardNode)
+                .to(0.3, { position: cc.v2(gotoX, gotoY) })
+                .start();
+
+            //set default position
+            cardNode.oneCard.originalPosX = gotoX;
+            cardNode.oneCard.originalPosY = gotoY;
+        }
+
     },
 });

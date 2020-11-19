@@ -1,4 +1,4 @@
-const cardPlacement = require("./lib/cardPlacementHandler");
+const { Hand } = require("./lib/pokerBig2solver");
 
 cc.Class({
     extends: cc.Component,
@@ -14,6 +14,14 @@ cc.Class({
 
     onLoad () {
         this.node.on(cc.Node.EventType.MOUSE_DOWN, this.onClick, this);
+
+        let hand1 = Hand.solve(['Ad', '5d', '2d', '3d', '4d']);
+        let hand2 = Hand.solve(['As', 'Ks', 'Qs', 'Js', '10s']);
+        let winner = Hand.winners([hand1, hand2]); // hand2
+
+        cc.log("hand1:", hand1);
+        cc.log("hand2:", hand2);
+        cc.log("winner:", winner);
     },
 
     onClick (e) {
@@ -83,6 +91,6 @@ cc.Class({
         cc.sys.localStorage.setItem("placedIdxCard", JSON.stringify(placedIdxCard));
         
         // determined rank card arrangement
-        
+
     },
 });

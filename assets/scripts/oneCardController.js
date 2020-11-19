@@ -27,7 +27,7 @@ cc.Class({
             default: null,
             type: cc.SpriteFrame
         },
-        clover: {
+        club: {
             default: null,
             type: cc.SpriteFrame
         },
@@ -56,15 +56,15 @@ cc.Class({
         let thisCard = playerCard[this.cardIndex];
         this.setCard(thisCard.number, this[thisCard.shape], cc.Color[thisCard.color]);
 
-        let gotoX = 55 + (this.cardIndex * 55);
-        let gotoY = 50;
-        cc.tween(this.node)
-            .to(0.3, { position: cc.v2(gotoX, gotoY) })
-            .start();
+        // let gotoX = 55 + (this.cardIndex * 55);
+        // let gotoY = 50;
+        // cc.tween(this.node)
+        //     .to(0.3, { position: cc.v2(gotoX, gotoY) })
+        //     .start();
 
-        //set default position
-        this.originalPosX = gotoX;
-        this.originalPosY = gotoY;
+        // //set default position
+        // this.originalPosX = gotoX;
+        // this.originalPosY = gotoY;
     },
 
     setCard(number, shape, color) {

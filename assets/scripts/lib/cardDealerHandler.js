@@ -8,7 +8,7 @@ module.exports = {
     ],
 
     cardShapes: [
-        { shape: "clover", color: "BLACK" }, 
+        { shape: "club", color: "BLACK" }, 
         { shape: "spade", color: "BLACK" }, 
         { shape: "heart", color: "RED" }, 
         { shape: "diamond", color: "RED" }, 
