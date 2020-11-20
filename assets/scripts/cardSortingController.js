@@ -1,4 +1,4 @@
-const { Hand } = require("./lib/pokerBig2solver");
+const CardRanking = require("./lib/cardRankingHandler");
 
 cc.Class({
     extends: cc.Component,
@@ -14,46 +14,30 @@ cc.Class({
 
     onLoad () {
         this.node.on(cc.Node.EventType.MOUSE_DOWN, this.onClick, this);
-
-        let hand1 = Hand.solve(['Ad', '5d', '2d', '3d', '4d']);
-        let hand2 = Hand.solve(['As', 'Ks', 'Qs', 'Js', '10s']);
-        let winner = Hand.winners([hand1, hand2]); // hand2
-
-        cc.log("hand1:", hand1);
-        cc.log("hand2:", hand2);
-        cc.log("winner:", winner);
     },
 
     onClick (e) {
         // e.stopPropagation();
-        cc.log("selected place index:", this.placeIndex);
+        cc.log("picked place index:", this.placeIndex);
         
-        // get selectedIdxCard
-        let selectedIdxCard = cc.sys.localStorage.getItem("selectedIdxCard");
-        selectedIdxCard = selectedIdxCard? JSON.parse(selectedIdxCard) : [];
-
-        // // get player index
-        // let playerIndex = 0;
-
-        // // get player card
-        // let handoutCard = cc.sys.localStorage.getItem("handoutCard");
-        // handoutCard = JSON.parse(handoutCard);
-        // let playerCard = handoutCard[playerIndex];
+        // get pickedIdxCard
+        let pickedIdxCard = cc.sys.localStorage.getItem("pickedIdxCard");
+        pickedIdxCard = pickedIdxCard? JSON.parse(pickedIdxCard) : [];
 
         // get placedIdxCard
         let placedIdxCard = cc.sys.localStorage.getItem("placedIdxCard");
         placedIdxCard = placedIdxCard ? JSON.parse(placedIdxCard) : [];
         
         let startPlaceIndex = this.placeIndex;
-        for(let i = 0; i < selectedIdxCard.length; i++){
-            // // get selectedCardDetail
-            // let selectedCardDetail = playerCard[selectedIdxCard[i]];
+        for(let i = 0; i < pickedIdxCard.length; i++){
+            // // get pickedCardDetail
+            // let pickedCardDetail = playerCard[pickedIdxCard[i]];
             
             let idPos = startPlaceIndex > 12 ? startPlaceIndex - 13 : startPlaceIndex;
             
             // simpan penghuni sebelumnya, dan replace dengan yang baru 
             let penghuniSebelumnya = placedIdxCard[idPos] ? placedIdxCard[idPos] : undefined; 
-            placedIdxCard[idPos] = selectedIdxCard[i];
+            placedIdxCard[idPos] = pickedIdxCard[i];
 
             // get position of place card
             let placeCardNode = cc.find("Canvas/sortedDeck/cardPlace" + (idPos + 1));
@@ -61,14 +45,14 @@ cc.Class({
             let gotoY = placeCardNode.position.y;
             
             // move card to place card
-            let movedCardNode = cc.find("Canvas/cardDeck/card" + (selectedIdxCard[i] + 1));
+            let movedCardNode = cc.find("Canvas/cardDeck/card" + (pickedIdxCard[i] + 1));
             cc.tween(movedCardNode)
                 .to(0.1, { position: cc.v2(gotoX, gotoY) })
                 .start();
 
-            // set selected false for moved card
+            // set picked false for moved card
             movedCardNode.oneCard = movedCardNode.getComponent("oneCardController");
-            movedCardNode.oneCard.selected = false;
+            movedCardNode.oneCard.picked = false;
 
             //handle kartu bertumpuk di placeCard, kembalikan posisi ke original
             if(penghuniSebelumnya){
@@ -83,14 +67,62 @@ cc.Class({
             startPlaceIndex++;
         }
             
-        // empty `selectedIdxCard` localStorage
-        cc.sys.localStorage.removeItem("selectedIdxCard");
+        // empty `pickedIdxCard` localStorage
+        cc.sys.localStorage.removeItem("pickedIdxCard");
 
         // save placedIdxCard to localStorage
-        cc.log("placedIdxCard", placedIdxCard);
         cc.sys.localStorage.setItem("placedIdxCard", JSON.stringify(placedIdxCard));
         
-        // determined rank card arrangement
+        // get player card
+        let playerIndex = 0;
+        let handoutCard = cc.sys.localStorage.getItem("handoutCard");
+        handoutCard = JSON.parse(handoutCard);
+        let playerCard = handoutCard[playerIndex]; 
 
+        // get placed card detail
+        let placedCardDetail = placedIdxCard.map((pcId) => {
+            return playerCard[pcId];
+        });
+        
+        let rowDetails = [
+            placedCardDetail.slice(0, 3),
+            placedCardDetail.slice(3, 8),
+            placedCardDetail.slice(8, 13)
+        ];
+        
+        let rowRanks = rowDetails.map(this.determinedRankCard);
+        cc.log("rowRanks:", rowRanks);
+
+        for(let i = 0; i < rowRanks.length; i++){
+            let rankLabelNode = this.node.parent.getChildByName("row" + (i + 1) + "RankLabel");
+            let rankLabel = rankLabelNode.getComponent(cc.Label);
+            
+            rankLabel.string = rowRanks[i];
+        }
     },
+
+    determinedRankCard (rowCards) {
+        let rowCardCodes = rowCards.reduce((row, card) => {
+            if (card && card.numberCode && card.numberCode){
+                // return row.push(card.numberCode + card.shapeCode);
+                return [...row, card.numberCode + card.shapeCode];
+            } else {
+                return [...row];
+            }
+        }, []);
+
+        // determined rank card arrangement
+        let hand = { rankName: "" };
+        if(rowCardCodes.length > 0)
+            hand = CardRanking.getHandDetails(rowCardCodes);
+        
+        // let winner2 = CardRanking.compareHands(hand3, hand4);
+        // cc.log("winner2:", winner2);
+
+        return hand.rankName;
+    }
+
+    // update(){
+    //     cc.log("re-render");
+    // }
 });

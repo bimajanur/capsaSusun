@@ -93,16 +93,16 @@
         "__id__": 32
       },
       {
-        "__id__": 72
+        "__id__": 78
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 178
+        "__id__": 184
       },
       {
-        "__id__": 179
+        "__id__": 185
       }
     ],
     "_prefab": null,
@@ -192,7 +192,7 @@
       "array": [
         0,
         0,
-        292.7668998438301,
+        299.82347224726624,
         0,
         0,
         0,
@@ -1493,6 +1493,15 @@
       },
       {
         "__id__": 69
+      },
+      {
+        "__id__": 72
+      },
+      {
+        "__id__": 74
+      },
+      {
+        "__id__": 76
       }
     ],
     "_active": true,
@@ -2951,6 +2960,291 @@
   },
   {
     "__type__": "cc.Node",
+    "_name": "row1RankLabel",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 32
+    },
+    "_children": [],
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 73
+      }
+    ],
+    "_prefab": null,
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 123.66,
+      "height": 37.8
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 0
+    },
+    "_trs": {
+      "__type__": "TypedArray",
+      "ctor": "Float64Array",
+      "array": [
+        80,
+        400.384,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "_eulerAngles": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_is3DNode": false,
+    "_groupIndex": 0,
+    "groupIndex": 0,
+    "_id": "17LYO0W0JLPbQYTQ+UvTHl"
+  },
+  {
+    "__type__": "cc.Label",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 72
+    },
+    "_enabled": true,
+    "_materials": [
+      {
+        "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
+      }
+    ],
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
+    "_string": "",
+    "_N$string": "",
+    "_fontSize": 25,
+    "_lineHeight": 30,
+    "_enableWrapText": true,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
+    "_spacingX": 0,
+    "_batchAsBitmap": false,
+    "_styleFlags": 0,
+    "_underlineHeight": 0,
+    "_N$horizontalAlign": 1,
+    "_N$verticalAlign": 1,
+    "_N$fontFamily": "Arial",
+    "_N$overflow": 0,
+    "_N$cacheMode": 0,
+    "_id": "3cW0XhWUVCTJNUfrF+unHw"
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "row2RankLabel",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 32
+    },
+    "_children": [],
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 75
+      }
+    ],
+    "_prefab": null,
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 138.95,
+      "height": 37.8
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 0
+    },
+    "_trs": {
+      "__type__": "TypedArray",
+      "ctor": "Float64Array",
+      "array": [
+        80,
+        300.384,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "_eulerAngles": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_is3DNode": false,
+    "_groupIndex": 0,
+    "groupIndex": 0,
+    "_id": "11LV1vlf9OS44FPXzud1mk"
+  },
+  {
+    "__type__": "cc.Label",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 74
+    },
+    "_enabled": true,
+    "_materials": [
+      {
+        "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
+      }
+    ],
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
+    "_string": "",
+    "_N$string": "",
+    "_fontSize": 25,
+    "_lineHeight": 30,
+    "_enableWrapText": true,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
+    "_spacingX": 0,
+    "_batchAsBitmap": false,
+    "_styleFlags": 0,
+    "_underlineHeight": 0,
+    "_N$horizontalAlign": 1,
+    "_N$verticalAlign": 1,
+    "_N$fontFamily": "Arial",
+    "_N$overflow": 0,
+    "_N$cacheMode": 0,
+    "_id": "98BMttHepMv4GUlncZtwfD"
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "row3RankLabel",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 32
+    },
+    "_children": [],
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 77
+      }
+    ],
+    "_prefab": null,
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 119.49,
+      "height": 37.8
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 0
+    },
+    "_trs": {
+      "__type__": "TypedArray",
+      "ctor": "Float64Array",
+      "array": [
+        80,
+        200.384,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "_eulerAngles": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_is3DNode": false,
+    "_groupIndex": 0,
+    "groupIndex": 0,
+    "_id": "74t96REgBIgZp19mqIKTLT"
+  },
+  {
+    "__type__": "cc.Label",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 76
+    },
+    "_enabled": true,
+    "_materials": [
+      {
+        "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
+      }
+    ],
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
+    "_string": "",
+    "_N$string": "",
+    "_fontSize": 25,
+    "_lineHeight": 30,
+    "_enableWrapText": true,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
+    "_spacingX": 0,
+    "_batchAsBitmap": false,
+    "_styleFlags": 0,
+    "_underlineHeight": 0,
+    "_N$horizontalAlign": 1,
+    "_N$verticalAlign": 1,
+    "_N$fontFamily": "Arial",
+    "_N$overflow": 0,
+    "_N$cacheMode": 0,
+    "_id": "adanzGWV5KXYNsy/RnL9B/"
+  },
+  {
+    "__type__": "cc.Node",
     "_name": "cardDeck",
     "_objFlags": 0,
     "_parent": {
@@ -2958,49 +3252,49 @@
     },
     "_children": [
       {
-        "__id__": 73
+        "__id__": 79
       },
       {
-        "__id__": 81
+        "__id__": 87
       },
       {
-        "__id__": 89
+        "__id__": 95
       },
       {
-        "__id__": 97
+        "__id__": 103
       },
       {
-        "__id__": 105
+        "__id__": 111
       },
       {
-        "__id__": 113
+        "__id__": 119
       },
       {
-        "__id__": 121
+        "__id__": 127
       },
       {
-        "__id__": 129
+        "__id__": 135
       },
       {
-        "__id__": 137
+        "__id__": 143
       },
       {
-        "__id__": 145
+        "__id__": 151
       },
       {
-        "__id__": 153
+        "__id__": 159
       },
       {
-        "__id__": 161
+        "__id__": 167
       },
       {
-        "__id__": 169
+        "__id__": 175
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 177
+        "__id__": 183
       }
     ],
     "_prefab": null,
@@ -3056,26 +3350,26 @@
     "_name": "card1",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 72
+      "__id__": 78
     },
     "_children": [
       {
-        "__id__": 74
+        "__id__": 80
       },
       {
-        "__id__": 76
+        "__id__": 82
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 78
+        "__id__": 84
       },
       {
-        "__id__": 79
+        "__id__": 85
       },
       {
-        "__id__": 80
+        "__id__": 86
       }
     ],
     "_prefab": null,
@@ -3131,13 +3425,13 @@
     "_name": "cardNumber",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 73
+      "__id__": 79
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 75
+        "__id__": 81
       }
     ],
     "_prefab": null,
@@ -3193,7 +3487,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 74
+      "__id__": 80
     },
     "_enabled": true,
     "_materials": [
@@ -3226,13 +3520,13 @@
     "_name": "cardShape",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 73
+      "__id__": 79
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 77
+        "__id__": 83
       }
     ],
     "_prefab": null,
@@ -3288,7 +3582,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 76
+      "__id__": 82
     },
     "_enabled": true,
     "_materials": [
@@ -3320,7 +3614,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 73
+      "__id__": 79
     },
     "_enabled": true,
     "_materials": [
@@ -3352,17 +3646,17 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 73
+      "__id__": 79
     },
     "_enabled": true,
     "cardShapeSprite": {
-      "__id__": 77
+      "__id__": 83
     },
     "cardNumberNode": {
-      "__id__": 74
+      "__id__": 80
     },
     "cardNumberLabel": {
-      "__id__": 75
+      "__id__": 81
     },
     "spade": {
       "__uuid__": "0a08962b-a4c5-4208-8c98-fab4bfb39c6c"
@@ -3378,7 +3672,6 @@
     },
     "playerIndex": 0,
     "cardIndex": 0,
-    "selected": false,
     "_id": "89YL046fRCApgmFFrPXlhI"
   },
   {
@@ -3386,7 +3679,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 73
+      "__id__": 79
     },
     "_enabled": true,
     "_id": "975ooZOX1Ekaf6y3Ng6OJB"
@@ -3396,26 +3689,26 @@
     "_name": "card2",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 72
+      "__id__": 78
     },
     "_children": [
       {
-        "__id__": 82
+        "__id__": 88
       },
       {
-        "__id__": 84
+        "__id__": 90
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 86
+        "__id__": 92
       },
       {
-        "__id__": 87
+        "__id__": 93
       },
       {
-        "__id__": 88
+        "__id__": 94
       }
     ],
     "_prefab": null,
@@ -3471,13 +3764,13 @@
     "_name": "cardNumber",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 81
+      "__id__": 87
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 83
+        "__id__": 89
       }
     ],
     "_prefab": null,
@@ -3533,7 +3826,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 82
+      "__id__": 88
     },
     "_enabled": true,
     "_materials": [
@@ -3566,13 +3859,13 @@
     "_name": "cardShape",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 81
+      "__id__": 87
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 85
+        "__id__": 91
       }
     ],
     "_prefab": null,
@@ -3628,7 +3921,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 84
+      "__id__": 90
     },
     "_enabled": true,
     "_materials": [
@@ -3660,7 +3953,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 81
+      "__id__": 87
     },
     "_enabled": true,
     "_materials": [
@@ -3692,17 +3985,17 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 81
+      "__id__": 87
     },
     "_enabled": true,
     "cardShapeSprite": {
-      "__id__": 85
+      "__id__": 91
     },
     "cardNumberNode": {
-      "__id__": 82
+      "__id__": 88
     },
     "cardNumberLabel": {
-      "__id__": 83
+      "__id__": 89
     },
     "spade": {
       "__uuid__": "0a08962b-a4c5-4208-8c98-fab4bfb39c6c"
@@ -3718,7 +4011,6 @@
     },
     "playerIndex": 0,
     "cardIndex": 1,
-    "selected": false,
     "_id": "7atk4rFQFDJLiNWu99U7+0"
   },
   {
@@ -3726,7 +4018,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 81
+      "__id__": 87
     },
     "_enabled": true,
     "_id": "77FoS1FPZJoY1rS75CqJc+"
@@ -3736,26 +4028,26 @@
     "_name": "card3",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 72
+      "__id__": 78
     },
     "_children": [
       {
-        "__id__": 90
+        "__id__": 96
       },
       {
-        "__id__": 92
+        "__id__": 98
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 94
+        "__id__": 100
       },
       {
-        "__id__": 95
+        "__id__": 101
       },
       {
-        "__id__": 96
+        "__id__": 102
       }
     ],
     "_prefab": null,
@@ -3811,13 +4103,13 @@
     "_name": "cardNumber",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 89
+      "__id__": 95
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 91
+        "__id__": 97
       }
     ],
     "_prefab": null,
@@ -3873,7 +4165,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 90
+      "__id__": 96
     },
     "_enabled": true,
     "_materials": [
@@ -3906,13 +4198,13 @@
     "_name": "cardShape",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 89
+      "__id__": 95
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 93
+        "__id__": 99
       }
     ],
     "_prefab": null,
@@ -3968,7 +4260,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 92
+      "__id__": 98
     },
     "_enabled": true,
     "_materials": [
@@ -4000,7 +4292,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 89
+      "__id__": 95
     },
     "_enabled": true,
     "_materials": [
@@ -4032,17 +4324,17 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 89
+      "__id__": 95
     },
     "_enabled": true,
     "cardShapeSprite": {
-      "__id__": 93
+      "__id__": 99
     },
     "cardNumberNode": {
-      "__id__": 90
+      "__id__": 96
     },
     "cardNumberLabel": {
-      "__id__": 91
+      "__id__": 97
     },
     "spade": {
       "__uuid__": "0a08962b-a4c5-4208-8c98-fab4bfb39c6c"
@@ -4058,7 +4350,6 @@
     },
     "playerIndex": 0,
     "cardIndex": 2,
-    "selected": false,
     "_id": "01G856+aZK961YMgX50Sjq"
   },
   {
@@ -4066,7 +4357,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 89
+      "__id__": 95
     },
     "_enabled": true,
     "_id": "1123PXPIxFZI5gfkDsKYei"
@@ -4076,26 +4367,26 @@
     "_name": "card4",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 72
+      "__id__": 78
     },
     "_children": [
       {
-        "__id__": 98
+        "__id__": 104
       },
       {
-        "__id__": 100
+        "__id__": 106
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 102
+        "__id__": 108
       },
       {
-        "__id__": 103
+        "__id__": 109
       },
       {
-        "__id__": 104
+        "__id__": 110
       }
     ],
     "_prefab": null,
@@ -4151,13 +4442,13 @@
     "_name": "cardNumber",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 97
+      "__id__": 103
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 99
+        "__id__": 105
       }
     ],
     "_prefab": null,
@@ -4213,7 +4504,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 98
+      "__id__": 104
     },
     "_enabled": true,
     "_materials": [
@@ -4246,13 +4537,13 @@
     "_name": "cardShape",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 97
+      "__id__": 103
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 101
+        "__id__": 107
       }
     ],
     "_prefab": null,
@@ -4308,7 +4599,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 100
+      "__id__": 106
     },
     "_enabled": true,
     "_materials": [
@@ -4340,7 +4631,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 97
+      "__id__": 103
     },
     "_enabled": true,
     "_materials": [
@@ -4372,17 +4663,17 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 97
+      "__id__": 103
     },
     "_enabled": true,
     "cardShapeSprite": {
-      "__id__": 101
+      "__id__": 107
     },
     "cardNumberNode": {
-      "__id__": 98
+      "__id__": 104
     },
     "cardNumberLabel": {
-      "__id__": 99
+      "__id__": 105
     },
     "spade": {
       "__uuid__": "0a08962b-a4c5-4208-8c98-fab4bfb39c6c"
@@ -4398,7 +4689,6 @@
     },
     "playerIndex": 0,
     "cardIndex": 3,
-    "selected": false,
     "_id": "e3DQ1TbmBELLZwRQy4VtqT"
   },
   {
@@ -4406,7 +4696,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 97
+      "__id__": 103
     },
     "_enabled": true,
     "_id": "8eFCFFf1pKEqisk+ZIak/4"
@@ -4416,26 +4706,26 @@
     "_name": "card5",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 72
+      "__id__": 78
     },
     "_children": [
       {
-        "__id__": 106
+        "__id__": 112
       },
       {
-        "__id__": 108
+        "__id__": 114
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 110
+        "__id__": 116
       },
       {
-        "__id__": 111
+        "__id__": 117
       },
       {
-        "__id__": 112
+        "__id__": 118
       }
     ],
     "_prefab": null,
@@ -4491,13 +4781,13 @@
     "_name": "cardNumber",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 105
+      "__id__": 111
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 107
+        "__id__": 113
       }
     ],
     "_prefab": null,
@@ -4553,7 +4843,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 106
+      "__id__": 112
     },
     "_enabled": true,
     "_materials": [
@@ -4586,13 +4876,13 @@
     "_name": "cardShape",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 105
+      "__id__": 111
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 109
+        "__id__": 115
       }
     ],
     "_prefab": null,
@@ -4648,7 +4938,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 108
+      "__id__": 114
     },
     "_enabled": true,
     "_materials": [
@@ -4680,7 +4970,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 105
+      "__id__": 111
     },
     "_enabled": true,
     "_materials": [
@@ -4712,17 +5002,17 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 105
+      "__id__": 111
     },
     "_enabled": true,
     "cardShapeSprite": {
-      "__id__": 109
+      "__id__": 115
     },
     "cardNumberNode": {
-      "__id__": 106
+      "__id__": 112
     },
     "cardNumberLabel": {
-      "__id__": 107
+      "__id__": 113
     },
     "spade": {
       "__uuid__": "0a08962b-a4c5-4208-8c98-fab4bfb39c6c"
@@ -4738,7 +5028,6 @@
     },
     "playerIndex": 0,
     "cardIndex": 4,
-    "selected": false,
     "_id": "76NaF99SpIJqZiBcYBKD/U"
   },
   {
@@ -4746,7 +5035,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 105
+      "__id__": 111
     },
     "_enabled": true,
     "_id": "62VSQOTXtMmIhKh6GdZGpa"
@@ -4756,26 +5045,26 @@
     "_name": "card6",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 72
+      "__id__": 78
     },
     "_children": [
       {
-        "__id__": 114
+        "__id__": 120
       },
       {
-        "__id__": 116
+        "__id__": 122
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 118
+        "__id__": 124
       },
       {
-        "__id__": 119
+        "__id__": 125
       },
       {
-        "__id__": 120
+        "__id__": 126
       }
     ],
     "_prefab": null,
@@ -4831,13 +5120,13 @@
     "_name": "cardNumber",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 113
+      "__id__": 119
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 115
+        "__id__": 121
       }
     ],
     "_prefab": null,
@@ -4893,7 +5182,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 114
+      "__id__": 120
     },
     "_enabled": true,
     "_materials": [
@@ -4926,13 +5215,13 @@
     "_name": "cardShape",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 113
+      "__id__": 119
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 117
+        "__id__": 123
       }
     ],
     "_prefab": null,
@@ -4988,7 +5277,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 116
+      "__id__": 122
     },
     "_enabled": true,
     "_materials": [
@@ -5020,7 +5309,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 113
+      "__id__": 119
     },
     "_enabled": true,
     "_materials": [
@@ -5052,17 +5341,17 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 113
+      "__id__": 119
     },
     "_enabled": true,
     "cardShapeSprite": {
-      "__id__": 117
+      "__id__": 123
     },
     "cardNumberNode": {
-      "__id__": 114
+      "__id__": 120
     },
     "cardNumberLabel": {
-      "__id__": 115
+      "__id__": 121
     },
     "spade": {
       "__uuid__": "0a08962b-a4c5-4208-8c98-fab4bfb39c6c"
@@ -5078,7 +5367,6 @@
     },
     "playerIndex": 0,
     "cardIndex": 5,
-    "selected": false,
     "_id": "23PhkmqrpL3rZQWrh6bKzM"
   },
   {
@@ -5086,7 +5374,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 113
+      "__id__": 119
     },
     "_enabled": true,
     "_id": "ebdiblUbtO95nvWM+yfH96"
@@ -5096,26 +5384,26 @@
     "_name": "card7",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 72
+      "__id__": 78
     },
     "_children": [
       {
-        "__id__": 122
+        "__id__": 128
       },
       {
-        "__id__": 124
+        "__id__": 130
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 126
+        "__id__": 132
       },
       {
-        "__id__": 127
+        "__id__": 133
       },
       {
-        "__id__": 128
+        "__id__": 134
       }
     ],
     "_prefab": null,
@@ -5171,13 +5459,13 @@
     "_name": "cardNumber",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 121
+      "__id__": 127
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 123
+        "__id__": 129
       }
     ],
     "_prefab": null,
@@ -5233,7 +5521,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 122
+      "__id__": 128
     },
     "_enabled": true,
     "_materials": [
@@ -5266,13 +5554,13 @@
     "_name": "cardShape",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 121
+      "__id__": 127
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 125
+        "__id__": 131
       }
     ],
     "_prefab": null,
@@ -5328,7 +5616,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 124
+      "__id__": 130
     },
     "_enabled": true,
     "_materials": [
@@ -5360,7 +5648,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 121
+      "__id__": 127
     },
     "_enabled": true,
     "_materials": [
@@ -5392,17 +5680,17 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 121
+      "__id__": 127
     },
     "_enabled": true,
     "cardShapeSprite": {
-      "__id__": 125
+      "__id__": 131
     },
     "cardNumberNode": {
-      "__id__": 122
+      "__id__": 128
     },
     "cardNumberLabel": {
-      "__id__": 123
+      "__id__": 129
     },
     "spade": {
       "__uuid__": "0a08962b-a4c5-4208-8c98-fab4bfb39c6c"
@@ -5418,7 +5706,6 @@
     },
     "playerIndex": 0,
     "cardIndex": 6,
-    "selected": false,
     "_id": "15WLeaDBJAQ7maMzwfL2r+"
   },
   {
@@ -5426,7 +5713,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 121
+      "__id__": 127
     },
     "_enabled": true,
     "_id": "196VG/4rRMVIxSMrWP/w6M"
@@ -5436,26 +5723,26 @@
     "_name": "card8",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 72
+      "__id__": 78
     },
     "_children": [
       {
-        "__id__": 130
+        "__id__": 136
       },
       {
-        "__id__": 132
+        "__id__": 138
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 134
+        "__id__": 140
       },
       {
-        "__id__": 135
+        "__id__": 141
       },
       {
-        "__id__": 136
+        "__id__": 142
       }
     ],
     "_prefab": null,
@@ -5511,13 +5798,13 @@
     "_name": "cardNumber",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 129
+      "__id__": 135
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 131
+        "__id__": 137
       }
     ],
     "_prefab": null,
@@ -5573,7 +5860,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 130
+      "__id__": 136
     },
     "_enabled": true,
     "_materials": [
@@ -5606,13 +5893,13 @@
     "_name": "cardShape",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 129
+      "__id__": 135
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 133
+        "__id__": 139
       }
     ],
     "_prefab": null,
@@ -5668,7 +5955,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 132
+      "__id__": 138
     },
     "_enabled": true,
     "_materials": [
@@ -5700,7 +5987,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 129
+      "__id__": 135
     },
     "_enabled": true,
     "_materials": [
@@ -5732,17 +6019,17 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 129
+      "__id__": 135
     },
     "_enabled": true,
     "cardShapeSprite": {
-      "__id__": 133
+      "__id__": 139
     },
     "cardNumberNode": {
-      "__id__": 130
+      "__id__": 136
     },
     "cardNumberLabel": {
-      "__id__": 131
+      "__id__": 137
     },
     "spade": {
       "__uuid__": "0a08962b-a4c5-4208-8c98-fab4bfb39c6c"
@@ -5758,7 +6045,6 @@
     },
     "playerIndex": 0,
     "cardIndex": 7,
-    "selected": false,
     "_id": "b1lORInLJGnr7WCYH5BREh"
   },
   {
@@ -5766,7 +6052,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 129
+      "__id__": 135
     },
     "_enabled": true,
     "_id": "3fZtqdqchIwLt6nm+S/nGX"
@@ -5776,26 +6062,26 @@
     "_name": "card9",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 72
+      "__id__": 78
     },
     "_children": [
       {
-        "__id__": 138
+        "__id__": 144
       },
       {
-        "__id__": 140
+        "__id__": 146
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 142
+        "__id__": 148
       },
       {
-        "__id__": 143
+        "__id__": 149
       },
       {
-        "__id__": 144
+        "__id__": 150
       }
     ],
     "_prefab": null,
@@ -5851,13 +6137,13 @@
     "_name": "cardNumber",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 137
+      "__id__": 143
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 139
+        "__id__": 145
       }
     ],
     "_prefab": null,
@@ -5913,7 +6199,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 138
+      "__id__": 144
     },
     "_enabled": true,
     "_materials": [
@@ -5946,13 +6232,13 @@
     "_name": "cardShape",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 137
+      "__id__": 143
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 141
+        "__id__": 147
       }
     ],
     "_prefab": null,
@@ -6008,7 +6294,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 140
+      "__id__": 146
     },
     "_enabled": true,
     "_materials": [
@@ -6040,7 +6326,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 137
+      "__id__": 143
     },
     "_enabled": true,
     "_materials": [
@@ -6072,17 +6358,17 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 137
+      "__id__": 143
     },
     "_enabled": true,
     "cardShapeSprite": {
-      "__id__": 141
+      "__id__": 147
     },
     "cardNumberNode": {
-      "__id__": 138
+      "__id__": 144
     },
     "cardNumberLabel": {
-      "__id__": 139
+      "__id__": 145
     },
     "spade": {
       "__uuid__": "0a08962b-a4c5-4208-8c98-fab4bfb39c6c"
@@ -6098,7 +6384,6 @@
     },
     "playerIndex": 0,
     "cardIndex": 8,
-    "selected": false,
     "_id": "feiFa/iUJPY7jNXegK0Amd"
   },
   {
@@ -6106,7 +6391,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 137
+      "__id__": 143
     },
     "_enabled": true,
     "_id": "22PPqC0H1F6J9FrqxMM0Le"
@@ -6116,26 +6401,26 @@
     "_name": "card10",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 72
+      "__id__": 78
     },
     "_children": [
       {
-        "__id__": 146
+        "__id__": 152
       },
       {
-        "__id__": 148
+        "__id__": 154
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 150
+        "__id__": 156
       },
       {
-        "__id__": 151
+        "__id__": 157
       },
       {
-        "__id__": 152
+        "__id__": 158
       }
     ],
     "_prefab": null,
@@ -6191,13 +6476,13 @@
     "_name": "cardNumber",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 145
+      "__id__": 151
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 147
+        "__id__": 153
       }
     ],
     "_prefab": null,
@@ -6253,7 +6538,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 146
+      "__id__": 152
     },
     "_enabled": true,
     "_materials": [
@@ -6286,13 +6571,13 @@
     "_name": "cardShape",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 145
+      "__id__": 151
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 149
+        "__id__": 155
       }
     ],
     "_prefab": null,
@@ -6348,7 +6633,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 148
+      "__id__": 154
     },
     "_enabled": true,
     "_materials": [
@@ -6380,7 +6665,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 145
+      "__id__": 151
     },
     "_enabled": true,
     "_materials": [
@@ -6412,17 +6697,17 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 145
+      "__id__": 151
     },
     "_enabled": true,
     "cardShapeSprite": {
-      "__id__": 149
+      "__id__": 155
     },
     "cardNumberNode": {
-      "__id__": 146
+      "__id__": 152
     },
     "cardNumberLabel": {
-      "__id__": 147
+      "__id__": 153
     },
     "spade": {
       "__uuid__": "0a08962b-a4c5-4208-8c98-fab4bfb39c6c"
@@ -6438,7 +6723,6 @@
     },
     "playerIndex": 0,
     "cardIndex": 9,
-    "selected": false,
     "_id": "642fevm+JJiqyS2biAxLzN"
   },
   {
@@ -6446,7 +6730,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 145
+      "__id__": 151
     },
     "_enabled": true,
     "_id": "01LVoRtSdKaK+Xk++EE/IN"
@@ -6456,26 +6740,26 @@
     "_name": "card11",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 72
+      "__id__": 78
     },
     "_children": [
       {
-        "__id__": 154
+        "__id__": 160
       },
       {
-        "__id__": 156
+        "__id__": 162
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 158
+        "__id__": 164
       },
       {
-        "__id__": 159
+        "__id__": 165
       },
       {
-        "__id__": 160
+        "__id__": 166
       }
     ],
     "_prefab": null,
@@ -6531,13 +6815,13 @@
     "_name": "cardNumber",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 153
+      "__id__": 159
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 155
+        "__id__": 161
       }
     ],
     "_prefab": null,
@@ -6593,7 +6877,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 154
+      "__id__": 160
     },
     "_enabled": true,
     "_materials": [
@@ -6626,13 +6910,13 @@
     "_name": "cardShape",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 153
+      "__id__": 159
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 157
+        "__id__": 163
       }
     ],
     "_prefab": null,
@@ -6688,7 +6972,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 156
+      "__id__": 162
     },
     "_enabled": true,
     "_materials": [
@@ -6720,7 +7004,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 153
+      "__id__": 159
     },
     "_enabled": true,
     "_materials": [
@@ -6752,17 +7036,17 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 153
+      "__id__": 159
     },
     "_enabled": true,
     "cardShapeSprite": {
-      "__id__": 157
+      "__id__": 163
     },
     "cardNumberNode": {
-      "__id__": 154
+      "__id__": 160
     },
     "cardNumberLabel": {
-      "__id__": 155
+      "__id__": 161
     },
     "spade": {
       "__uuid__": "0a08962b-a4c5-4208-8c98-fab4bfb39c6c"
@@ -6778,7 +7062,6 @@
     },
     "playerIndex": 0,
     "cardIndex": 10,
-    "selected": false,
     "_id": "9aR8X4r4tMbq1L+WgASeut"
   },
   {
@@ -6786,7 +7069,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 153
+      "__id__": 159
     },
     "_enabled": true,
     "_id": "bcigJDsSFCGqSTREokNJgQ"
@@ -6796,26 +7079,26 @@
     "_name": "card12",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 72
+      "__id__": 78
     },
     "_children": [
       {
-        "__id__": 162
+        "__id__": 168
       },
       {
-        "__id__": 164
+        "__id__": 170
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 166
+        "__id__": 172
       },
       {
-        "__id__": 167
+        "__id__": 173
       },
       {
-        "__id__": 168
+        "__id__": 174
       }
     ],
     "_prefab": null,
@@ -6871,13 +7154,13 @@
     "_name": "cardNumber",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 161
+      "__id__": 167
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 163
+        "__id__": 169
       }
     ],
     "_prefab": null,
@@ -6933,7 +7216,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 162
+      "__id__": 168
     },
     "_enabled": true,
     "_materials": [
@@ -6966,13 +7249,13 @@
     "_name": "cardShape",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 161
+      "__id__": 167
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 165
+        "__id__": 171
       }
     ],
     "_prefab": null,
@@ -7028,7 +7311,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 164
+      "__id__": 170
     },
     "_enabled": true,
     "_materials": [
@@ -7060,7 +7343,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 161
+      "__id__": 167
     },
     "_enabled": true,
     "_materials": [
@@ -7092,17 +7375,17 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 161
+      "__id__": 167
     },
     "_enabled": true,
     "cardShapeSprite": {
-      "__id__": 165
+      "__id__": 171
     },
     "cardNumberNode": {
-      "__id__": 162
+      "__id__": 168
     },
     "cardNumberLabel": {
-      "__id__": 163
+      "__id__": 169
     },
     "spade": {
       "__uuid__": "0a08962b-a4c5-4208-8c98-fab4bfb39c6c"
@@ -7118,7 +7401,6 @@
     },
     "playerIndex": 0,
     "cardIndex": 11,
-    "selected": false,
     "_id": "4bP3QY6bZKzoAr0BRREgxK"
   },
   {
@@ -7126,7 +7408,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 161
+      "__id__": 167
     },
     "_enabled": true,
     "_id": "8a4pC1shVNwZh0ZnIde/jK"
@@ -7136,26 +7418,26 @@
     "_name": "card13",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 72
+      "__id__": 78
     },
     "_children": [
       {
-        "__id__": 170
+        "__id__": 176
       },
       {
-        "__id__": 172
+        "__id__": 178
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 174
+        "__id__": 180
       },
       {
-        "__id__": 175
+        "__id__": 181
       },
       {
-        "__id__": 176
+        "__id__": 182
       }
     ],
     "_prefab": null,
@@ -7211,13 +7493,13 @@
     "_name": "cardNumber",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 169
+      "__id__": 175
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 171
+        "__id__": 177
       }
     ],
     "_prefab": null,
@@ -7273,7 +7555,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 170
+      "__id__": 176
     },
     "_enabled": true,
     "_materials": [
@@ -7306,13 +7588,13 @@
     "_name": "cardShape",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 169
+      "__id__": 175
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 173
+        "__id__": 179
       }
     ],
     "_prefab": null,
@@ -7368,7 +7650,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 172
+      "__id__": 178
     },
     "_enabled": true,
     "_materials": [
@@ -7400,7 +7682,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 169
+      "__id__": 175
     },
     "_enabled": true,
     "_materials": [
@@ -7432,17 +7714,17 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 169
+      "__id__": 175
     },
     "_enabled": true,
     "cardShapeSprite": {
-      "__id__": 173
+      "__id__": 179
     },
     "cardNumberNode": {
-      "__id__": 170
+      "__id__": 176
     },
     "cardNumberLabel": {
-      "__id__": 171
+      "__id__": 177
     },
     "spade": {
       "__uuid__": "0a08962b-a4c5-4208-8c98-fab4bfb39c6c"
@@ -7458,7 +7740,6 @@
     },
     "playerIndex": 0,
     "cardIndex": 12,
-    "selected": false,
     "_id": "0f0uKttlNHyb6wwCnCofno"
   },
   {
@@ -7466,7 +7747,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 169
+      "__id__": 175
     },
     "_enabled": true,
     "_id": "d6BsuOVt5BwoDzKwXv6j2M"
@@ -7476,7 +7757,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 72
+      "__id__": 78
     },
     "_enabled": true,
     "_id": "58836Yq89ENIPgS6cykgW4"
