@@ -54,7 +54,8 @@ cc.Class({
             movedCardNode.oneCard = movedCardNode.getComponent("oneCardController");
             movedCardNode.oneCard.picked = false;
 
-            //handle kartu bertumpuk di placeCard, kembalikan posisi ke original
+            // handle kartu bertumpuk di placeCard, kembalikan posisi ke original
+            // TODO: data di pickedCard diupdate
             if(penghuniSebelumnya){
                 let stackCardNode = cc.find("Canvas/cardDeck/card" + (penghuniSebelumnya + 1));
                 let originalPosX = stackCardNode.oneCard.originalPosX;
@@ -91,20 +92,35 @@ cc.Class({
         ];
         
         let rowRanks = rowDetails.map(this.determinedRankCard);
-        cc.log("rowRanks:", rowRanks);
 
-        for(let i = 0; i < rowRanks.length; i++){
+        let benarSusun = true; 
+        rowRanks.forEach((rank, i, arr) => {
             let rankLabelNode = this.node.parent.getChildByName("row" + (i + 1) + "RankLabel");
             let rankLabel = rankLabelNode.getComponent(cc.Label);
             
-            rankLabel.string = rowRanks[i];
+            rankLabel.string = rank.rankName;
+    
+            if (i > 0) {
+                let isWin = CardRanking.compareHands(rank, arr[i - 1]);
+                benarSusun = benarSusun ? isWin >= 0 : false;
+            } else {
+                benarSusun = true;
+            }
+        });
+
+        for(let i = 0; i < 3; i++){
+            let rankLabelNode = this.node.parent.getChildByName("row" + (i + 1) + "RankLabel");
+            if(!benarSusun){
+                rankLabelNode.color = cc.Color.RED;
+            } else {
+                rankLabelNode.color = cc.Color.WHITE;
+            }
         }
     },
 
     determinedRankCard (rowCards) {
         let rowCardCodes = rowCards.reduce((row, card) => {
             if (card && card.numberCode && card.numberCode){
-                // return row.push(card.numberCode + card.shapeCode);
                 return [...row, card.numberCode + card.shapeCode];
             } else {
                 return [...row];
@@ -114,12 +130,9 @@ cc.Class({
         // determined rank card arrangement
         let hand = { rankName: "" };
         if(rowCardCodes.length > 0)
-            hand = CardRanking.getHandDetails(rowCardCodes);
+            hand = CardRanking.getRank(rowCardCodes);
         
-        // let winner2 = CardRanking.compareHands(hand3, hand4);
-        // cc.log("winner2:", winner2);
-
-        return hand.rankName;
+        return hand;
     }
 
     // update(){
