@@ -38,6 +38,8 @@ cc.Class({
 
             for (let j = i+1; j <= handoutCard.length; j++){
 
+                cc.log("vs", i, j);
+
                 let idPlayerB = j - 1;
                 let deckPlayerB = handoutCard[idPlayerB];
                 let rowsPlayerB = this.getRowCardDetail(deckPlayerB);
@@ -118,6 +120,7 @@ cc.Class({
             let totalLabel = totalNodeLabel.getComponent(cc.Label);
             totalLabel.string = plaPo.totalPoint;
 
+            cc.log("plaPo.salahSusun", i, plaPo);
             // jika salah susun
             if(plaPo.salahSusun){
                 let salahsusunNode = pointNode.getChildByName("salahSusun");
@@ -226,6 +229,16 @@ cc.Class({
         return rowDetails;
     },
 
+    determinedRankCard (rowCards) {
+        let rowCardCodes = CardRanking.generateCodeRow(rowCards);
+
+        // determined rank card arrangement
+        let hand = { rankName: "" };
+        if(rowCardCodes.length > 0) hand = CardRanking.getRank(rowCardCodes);
+        
+        return hand;
+    },
+
     playerAutoMove (handoutCard, idPlayer) {
         let playerCard = handoutCard[idPlayer];
 
@@ -236,15 +249,4 @@ cc.Class({
         return newHandoutCard;
     },
     
-    determinedRankCard (rowCards) {
-        let rowCardCodes = CardRanking.generateCodeRow(rowCards);
-
-        // determined rank card arrangement
-        let hand = { rankName: "" };
-        if(rowCardCodes.length > 0) hand = CardRanking.getRank(rowCardCodes);
-        
-        return hand;
-    }
-
-    // update (dt) {},
 });
