@@ -31,7 +31,6 @@ cc.Class({
         ];
         
         for (let i = 0; i < handoutCard.length; i++){
-            
             let idPlayer = i;
             let deckPlayer = handoutCard[idPlayer];
             let rowsPlayer = this.getRowCardDetail(deckPlayer);
@@ -55,8 +54,6 @@ cc.Class({
                 let idPlayerB = j - 1;
                 let deckPlayerB = handoutCard[idPlayerB];
                 let rowsPlayerB = this.getRowCardDetail(deckPlayerB);
-                
-                cc.log("vs", i, j);
                 
                 for (let idxRow = 0; idxRow < rowsPlayerA.length; idxRow++){
                     let rowA = rowsPlayerA[idxRow];
@@ -96,7 +93,7 @@ cc.Class({
                         playerPoints[idPlayerA].rowPoint[idxRow] += rewardPoint;
                         playerPoints[idPlayerB].rowPoint[idxRow] -= rewardPoint;
                     
-                    } else if (isWin > 0) { // player B win
+                    } else if (isWin < 0) { // player B win
                         // calculate total points
                         playerPoints[idPlayerA].totalPoint -= rewardPoint;
                         playerPoints[idPlayerB].totalPoint += rewardPoint;
@@ -104,7 +101,7 @@ cc.Class({
                         //calculate row Points
                         playerPoints[idPlayerA].rowPoint[idxRow] -= rewardPoint;
                         playerPoints[idPlayerB].rowPoint[idxRow] += rewardPoint;
-                    }
+                    } 
                 }
 
             }
@@ -258,13 +255,19 @@ cc.Class({
         let playerCard = handoutCard[idPlayer];
 
         // add AI here
-        let sortedPlayerCard = [...playerCard];
-        sortedPlayerCard.sort( (a,b) => this.compareObj(a,b,"numberCode") );
-        cc.log("sortedPlayerCard:", sortedPlayerCard);
+        let sortedPlayerCard = this.sortPlayerCardBy(playerCard, "numberCode"); 
         
         handoutCard[idPlayer] = sortedPlayerCard;
         cc.log("handoutCard:", handoutCard);
         return handoutCard;
+    },
+
+    sortPlayerCardBy(playerCard, sortBy){
+        let sortedPlayerCard = [...playerCard];
+        sortedPlayerCard.sort( (a,b) => this.compareObj(a, b, sortBy) );
+        cc.log("sortedPlayerCard:", sortedPlayerCard);
+        
+        return sortedPlayerCard
     },
 
     compareObj (a, b, byProp) {

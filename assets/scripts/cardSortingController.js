@@ -17,7 +17,6 @@ cc.Class({
 
     onClick (e) {
         // e.stopPropagation();
-        cc.log("picked place index:", this.placeIndex);
         
         // get pickedIdxCard
         let pickedIdxCard = cc.sys.localStorage.getItem("pickedIdxCard");
@@ -68,9 +67,6 @@ cc.Class({
             startPlaceIndex++;
         }
         
-        cc.log("pickedIdxCard:", pickedIdxCard);
-        cc.log("placedIdxCard:", placedIdxCard);
-
         // empty `pickedIdxCard` localStorage
         cc.sys.localStorage.removeItem("pickedIdxCard");
         // save placedIdxCard to localStorage

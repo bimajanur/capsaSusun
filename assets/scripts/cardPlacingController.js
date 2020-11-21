@@ -14,7 +14,6 @@ cc.Class({
     onClick (e) {
         e.stopPropagation();
         var thisCard = this.getComponent("oneCardController");
-        cc.log("picked card index:", thisCard.cardIndex);
 
         // set position if clicked, set back to initial position if clicked twice
         let gotoY = thisCard.picked? this.node.position.y - 10: this.node.position.y + 10;

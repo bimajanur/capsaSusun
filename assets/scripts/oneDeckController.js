@@ -18,8 +18,6 @@ cc.Class({
         let shuffledCardDeck = cardHandler.shuffleDeck(cardDeck);
         let handoutCard = cardHandler.handoutCard(shuffledCardDeck);
 
-        cc.log("handoutCard:", handoutCard);
-        
         // save to localStorage
         cc.sys.localStorage.setItem("handoutCard", JSON.stringify(handoutCard));
 
