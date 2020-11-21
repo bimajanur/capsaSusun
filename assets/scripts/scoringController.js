@@ -50,22 +50,25 @@ cc.Class({
 
                     let isWin = CardRanking.compareHands(rankA, rankB);
 
-                    if (isWin > 0) {
+                    let rewardPoint = this.getPointReward(idxRow, rankA.rank);
+
+                    if (isWin > 0) { // player A win
                         // calculate total points
-                        playerPoints[idPlayerA].totalPoint += 1;
-                        playerPoints[idPlayerB].totalPoint -= 1;
+                        playerPoints[idPlayerA].totalPoint += rewardPoint;
+                        playerPoints[idPlayerB].totalPoint -= rewardPoint;
 
                         //calculate row Points
-                        playerPoints[idPlayerA].rowPoint[idxRow] += 1;
-                        playerPoints[idPlayerB].rowPoint[idxRow] -= 1;
-                    } else if (isWin > 0) {
+                        playerPoints[idPlayerA].rowPoint[idxRow] += rewardPoint;
+                        playerPoints[idPlayerB].rowPoint[idxRow] -= rewardPoint;
+                    
+                    } else if (isWin > 0) { // player B win
                         // calculate total points
-                        playerPoints[idPlayerA].totalPoint -= 1;
-                        playerPoints[idPlayerB].totalPoint += 1;
+                        playerPoints[idPlayerA].totalPoint -= rewardPoint;
+                        playerPoints[idPlayerB].totalPoint += rewardPoint;
                         
                         //calculate row Points
-                        playerPoints[idPlayerA].rowPoint[idxRow] -= 1;
-                        playerPoints[idPlayerB].rowPoint[idxRow] += 1;
+                        playerPoints[idPlayerA].rowPoint[idxRow] -= rewardPoint;
+                        playerPoints[idPlayerB].rowPoint[idxRow] += rewardPoint;
                     }
                 }
 
@@ -113,6 +116,23 @@ cc.Class({
             let cryingNode = cc.find("Canvas/plaverAvatar/crying");
             cryingNode.active = true;
         }
+    },
+
+    getPointReward ( rowId, winnerRank) {
+        const pointList = [
+            { row: 0, rank: 6, point: 3 },
+            { row: 1, rank: 3, point: 2 },
+            { row: 1, rank: 2, point: 4 },
+            { row: 1, rank: 1, point: 5 },
+            { row: 2, rank: 2, point: 4 },
+            { row: 2, rank: 1, point: 5 },
+        ];
+        
+        let specialPoint = pointList.find((sp) => sp.row == rowId && sp.rank == winnerRank);
+        
+        let pointReward = specialPoint ? specialPoint.point : 1;
+
+        return pointReward;
     },
 
     getWinner (playerPointsArr) {
