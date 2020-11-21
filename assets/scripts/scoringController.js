@@ -21,31 +21,22 @@ cc.Class({
 
         // do the scoring
         let playerPoints = [
-            { playerId: 1, rowPoint: [ 0, 0, 0 ], totalPoint: 0 },
-            { playerId: 2, rowPoint: [ 0, 0, 0 ], totalPoint: 0 },
-            { playerId: 3, rowPoint: [ 0, 0, 0 ], totalPoint: 0 },
-            { playerId: 4, rowPoint: [ 0, 0, 0 ], totalPoint: 0 },
+            { playerId: 1, rowPoint: [ 0, 0, 0 ], totalPoint: 0, salahSusun: false, },
+            { playerId: 2, rowPoint: [ 0, 0, 0 ], totalPoint: 0, salahSusun: false, },
+            { playerId: 3, rowPoint: [ 0, 0, 0 ], totalPoint: 0, salahSusun: false, },
+            { playerId: 4, rowPoint: [ 0, 0, 0 ], totalPoint: 0, salahSusun: false, },
         ];
   
-        // // set row cards
-        // let rowDetails = [
-        //     placedCardDetail.slice(0, 3),
-        //     placedCardDetail.slice(3, 8),
-        //     placedCardDetail.slice(8, 13)
-        // ];
-        // let rowRanks = rowDetails.map(this.determinedRankCard);
-        // // calculate rank label
-        // rowRanks.forEach(this.getRowRank);
-
         for (let i = 1; i < handoutCard.length; i++){
+
+            let idPlayerA = i - 1;
+            let deckPlayerA = handoutCard[idPlayerA];
+            let rowsPlayerA = this.getRowCardDetail(deckPlayerA);
+
+            let rowRanksPlayerA = rowsPlayerA.map(this.determinedRankCard);
+            let salahSusunPlayerA = !rowRanksPlayerA.every(this.getSalahSusun);
+
             for (let j = i+1; j <= handoutCard.length; j++){
-
-                let idPlayerA = i - 1;
-                let deckPlayerA = handoutCard[idPlayerA];
-                let rowsPlayerA = this.getRowCardDetail(deckPlayerA);
-
-                let rowRanksPlayerA = rowsPlayerA.map(this.determinedRankCard);
-                let salahSusunPlayerA = !rowRanksPlayerA.every(this.getSalahSusun);
 
                 let idPlayerB = j - 1;
                 let deckPlayerB = handoutCard[idPlayerB];
@@ -69,12 +60,19 @@ cc.Class({
 
                     if(salahSusunPlayerA && salahSusunPlayerB){
                         isWin = 0;
+
+                        playerPoints[idPlayerA].salahSusun = true;
+                        playerPoints[idPlayerB].salahSusun = true;
                     } else if(salahSusunPlayerA) {
                         isWin = -1;
                         rewardPoint = 6;
+                        
+                        playerPoints[idPlayerA].salahSusun = true;
                     } else if(salahSusunPlayerB) {
                         isWin = 1;
                         rewardPoint = 6;
+
+                        playerPoints[idPlayerB].salahSusun = true;
                     }
 
                     if (isWin > 0) { // player A win
@@ -120,29 +118,39 @@ cc.Class({
             let totalLabel = totalNodeLabel.getComponent(cc.Label);
             totalLabel.string = plaPo.totalPoint;
 
+            // jika salah susun
+            if(plaPo.salahSusun){
+                let salahsusunNode = pointNode.getChildByName("salahSusun");
+                salahsusunNode.active = true;
+            }        
         });
 
         //get the winner
         let playerPointsOnly = playerPoints.map((plaPo) => plaPo.totalPoint);
         let winnerResult = this.getWinner(playerPointsOnly);
 
+
         // set winner badge
         winnerResult.winnerIdx.forEach((wId) => {
             let pointNode = this.node.getChildByName("cardDeck" + (wId + 1));
-            let winnerBadgeNode = pointNode.getChildByName("trophy");
-            winnerBadgeNode.active = true;
-
-            let gotoX = 202; 
-            let gotoY = 97; 
-
-            winnerBadgeNode.position.x = 0;
-            winnerBadgeNode.position.y = 0;
-    
-            cc.tween(winnerBadgeNode)
-            .to(0.5, { position: cc.v2(gotoX, gotoY) })
-            .start();
+            
+            if(!playerPoints[wId].salahSusun){
+                
+                let winnerBadgeNode = pointNode.getChildByName("trophy");
+                winnerBadgeNode.active = true;
+                
+                let gotoX = 202; 
+                let gotoY = 97; 
+                
+                winnerBadgeNode.position.x = 0;
+                winnerBadgeNode.position.y = 0;
+                
+                cc.tween(winnerBadgeNode)
+                .to(0.5, { position: cc.v2(gotoX, gotoY) })
+                .start();
+            }
         });
-        
+            
         // smile or cry
         if (winnerResult.winnerIdx.includes(0)){
             let smilingNode = cc.find("Canvas/plaverAvatar/smiling");
