@@ -73,7 +73,7 @@ cc.Class({
 
         // save placedIdxCard to localStorage
         cc.sys.localStorage.setItem("placedIdxCard", JSON.stringify(placedIdxCard));
-        
+
         // get player card
         let playerIndex = 0;
         let handoutCard = cc.sys.localStorage.getItem("handoutCard");
@@ -85,6 +85,7 @@ cc.Class({
             return playerCard[pcId];
         });
         
+        // set row cards
         let rowDetails = [
             placedCardDetail.slice(0, 3),
             placedCardDetail.slice(3, 8),
@@ -93,8 +94,8 @@ cc.Class({
         
         let rowRanks = rowDetails.map(this.determinedRankCard);
 
-        let benarSusun = true; 
         rowRanks.forEach((rank, i, arr) => {
+            let benarSusun = true; 
             let rankLabelNode = this.node.parent.getChildByName("row" + (i + 1) + "RankLabel");
             let rankLabel = rankLabelNode.getComponent(cc.Label);
             
@@ -103,18 +104,31 @@ cc.Class({
             if (i > 0) {
                 let isWin = CardRanking.compareHands(rank, arr[i - 1]);
                 benarSusun = benarSusun ? isWin >= 0 : false;
+
+                if(!benarSusun){
+                    let rankLabelNodeUp = this.node.parent.getChildByName("row" + i + "RankLabel");
+                    rankLabelNodeUp.color = cc.Color.RED;
+                    rankLabelNode.color = cc.Color.RED;
+                } else {
+                    rankLabelNode.color = cc.Color.WHITE;
+                }
             } else {
                 benarSusun = true;
+                rankLabelNode.color = cc.Color.WHITE;
             }
         });
 
-        for(let i = 0; i < 3; i++){
-            let rankLabelNode = this.node.parent.getChildByName("row" + (i + 1) + "RankLabel");
-            if(!benarSusun){
-                rankLabelNode.color = cc.Color.RED;
-            } else {
-                rankLabelNode.color = cc.Color.WHITE;
+        let isFull = false;
+        for (let i = 0; i < playerCard.length; i++){
+            if (placedIdxCard[i] != undefined) isFull = true;
+            else {
+                isFull = false;
+                break;
             }
+        }
+        if (isFull) {
+            let doneBtnNode = cc.find("Canvas/doneButton");
+            doneBtnNode.active = true;
         }
     },
 
@@ -135,7 +149,4 @@ cc.Class({
         return hand;
     }
 
-    // update(){
-    //     cc.log("re-render");
-    // }
 });

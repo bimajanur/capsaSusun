@@ -11,11 +11,15 @@ cc.Class({
         cc.sys.localStorage.removeItem("pickedIdxCard");
         cc.sys.localStorage.removeItem("placedIdxCard");
         
+        // set done button unvisible
+        let doneBtnNode = cc.find("Canvas/doneButton");
+        doneBtnNode.active = false;
+
         let cardDeck = cardHandler.getCardDeck(cardHandler.cardShapes, cardHandler.cardNumbers);
         let shuffledCardDeck = cardHandler.shuffleDeck(cardDeck);
         let handoutCard = cardHandler.handoutCard(shuffledCardDeck);
 
-        console.log("handoutCard:", handoutCard);
+        cc.log("handoutCard:", handoutCard);
         
         // save to localStorage
         cc.sys.localStorage.setItem("handoutCard", JSON.stringify(handoutCard));
