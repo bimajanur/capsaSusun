@@ -33,7 +33,6 @@ cc.Class({
             placedIdxCard[i] = null;
         }
         
-        cc.log("placedIdxCard:", placedIdxCard);
         cc.sys.localStorage.setItem("placedIdxCard", JSON.stringify(placedIdxCard));
     }
 });

@@ -1,4 +1,5 @@
 const CardRanking = require("./lib/cardRankingHandler");
+const AutoMove = require("./lib/autoMoveHandler");
 
 cc.Class({
     extends: cc.Component,
@@ -74,10 +75,10 @@ cc.Class({
                         rewardPoint = 0;
                     } else if(playerPoints[idPlayerA].salahSusun) {
                         isWin = -1;
-                        rewardPoint = 6;
+                        rewardPoint = 3;
                     } else if(playerPoints[idPlayerB].salahSusun) {
                         isWin = 1;
-                        rewardPoint = 6;
+                        rewardPoint = 3;
                     }
 
                     // cc.log("salahSusunPlayerAB", playerPoints[idPlayerA].salahSusun);
@@ -161,8 +162,6 @@ cc.Class({
         });
             
         // smile or cry
-        cc.log("winnerResult", winnerResult);
-
         if (winnerResult.winnerIdx.includes(0)){
             let smilingNode = cc.find("Canvas/plaverAvatar/smiling");
             smilingNode.active = true;
@@ -255,29 +254,12 @@ cc.Class({
         let playerCard = handoutCard[idPlayer];
 
         // add AI here
-        let sortedPlayerCard = this.sortPlayerCardBy(playerCard, "numberCode"); 
+        let rand = Math.floor(Math.random() * 2); 
+        let logicFunction = AutoMove.functionList[rand].func; 
+        let sortedPlayerCard = AutoMove[logicFunction](playerCard);
         
         handoutCard[idPlayer] = sortedPlayerCard;
-        cc.log("handoutCard:", handoutCard);
         return handoutCard;
     },
 
-    sortPlayerCardBy(playerCard, sortBy){
-        let sortedPlayerCard = [...playerCard];
-        sortedPlayerCard.sort( (a,b) => this.compareObj(a, b, sortBy) );
-        cc.log("sortedPlayerCard:", sortedPlayerCard);
-        
-        return sortedPlayerCard
-    },
-
-    compareObj (a, b, byProp) {
-        if (a[byProp] < b[byProp]) { 
-            return -1;
-        }
-        if (a[byProp] > b[byProp]) {
-            return 1;
-        }
-        return 0;
-    }
-      
 });
