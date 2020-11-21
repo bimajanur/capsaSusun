@@ -104,7 +104,7 @@ cc.Class({
         // set winner badge
         winnerResult.winnerIdx.forEach((wId) => {
             let pointNode = this.node.getChildByName("cardDeck" + (wId + 1));
-            let winnerBadgeNode = pointNode.getChildByName("winnerBadge");
+            let winnerBadgeNode = pointNode.getChildByName("trophy");
             winnerBadgeNode.active = true;
         });
         
