@@ -133,13 +133,15 @@ cc.Class({
     },
 
     determinedRankCard (rowCards) {
-        let rowCardCodes = rowCards.reduce((row, card) => {
-            if (card && card.numberCode && card.numberCode){
-                return [...row, card.numberCode + card.shapeCode];
-            } else {
-                return [...row];
-            }
-        }, []);
+        // let rowCardCodes = rowCards.reduce((row, card) => {
+        //     if (card && card.numberCode && card.numberCode){
+        //         return [...row, card.numberCode + card.shapeCode];
+        //     } else {
+        //         return [...row];
+        //     }
+        // }, []);
+
+        let rowCardCodes = CardRanking.generateCodeRow(rowCards);
 
         // determined rank card arrangement
         let hand = { rankName: "" };

@@ -22,8 +22,6 @@ cc.Class({
         handoutCard = JSON.parse(handoutCard);
         let playerCard = handoutCard[playerIndex]; 
         
-        cc.log("old handoutCard:", handoutCard)
-        
         // get placed card detail
         let placedCardDetail = placedIdxCard.map((pcId) => {
             return playerCard[pcId];
@@ -31,8 +29,6 @@ cc.Class({
         
         handoutCard[playerIndex] = placedCardDetail;
         
-        cc.log("new handoutCard:", handoutCard)
-
         // save updated handout to localStorage
         cc.sys.localStorage.setItem("handoutCard", JSON.stringify(handoutCard));
 

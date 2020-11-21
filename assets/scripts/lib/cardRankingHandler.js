@@ -74,6 +74,18 @@ module.exports = {
             }
         }
         return d1.rank < d2.rank ? 1 : -1;
+    },
+    
+    generateCodeRow: (rowCards) => {
+        let rowCardCodes = rowCards.reduce((row, card) => {
+            if (card && card.numberCode && card.numberCode){
+                return [...row, card.numberCode + card.shapeCode];
+            } else {
+                return [...row];
+            }
+        }, []);
+        
+        return rowCardCodes;
     }
 
 }
