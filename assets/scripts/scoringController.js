@@ -26,6 +26,16 @@ cc.Class({
             { playerId: 3, rowPoint: [ 0, 0, 0 ], totalPoint: 0 },
             { playerId: 4, rowPoint: [ 0, 0, 0 ], totalPoint: 0 },
         ];
+  
+        // // set row cards
+        // let rowDetails = [
+        //     placedCardDetail.slice(0, 3),
+        //     placedCardDetail.slice(3, 8),
+        //     placedCardDetail.slice(8, 13)
+        // ];
+        // let rowRanks = rowDetails.map(this.determinedRankCard);
+        // // calculate rank label
+        // rowRanks.forEach(this.getRowRank);
 
         for (let i = 1; i < handoutCard.length; i++){
             for (let j = i+1; j <= handoutCard.length; j++){
@@ -33,10 +43,16 @@ cc.Class({
                 let idPlayerA = i - 1;
                 let deckPlayerA = handoutCard[idPlayerA];
                 let rowsPlayerA = this.getRowCardDetail(deckPlayerA);
-                
+
+                let rowRanksPlayerA = rowsPlayerA.map(this.determinedRankCard);
+                let salahSusunPlayerA = !rowRanksPlayerA.every(this.getSalahSusun);
+
                 let idPlayerB = j - 1;
                 let deckPlayerB = handoutCard[idPlayerB];
                 let rowsPlayerB = this.getRowCardDetail(deckPlayerB);
+
+                let rowRanksPlayerB = rowsPlayerB.map(this.determinedRankCard);
+                let salahSusunPlayerB = !rowRanksPlayerB.every(this.getSalahSusun);
 
                 for (let idxRow = 0; idxRow < 3; idxRow++){
                     let rowA = rowsPlayerA[idxRow];
@@ -47,10 +63,19 @@ cc.Class({
 
                     let rankA = CardRanking.getRank(rowCodeA);
                     let rankB = CardRanking.getRank(rowCodeB);
-
+                    
                     let isWin = CardRanking.compareHands(rankA, rankB);
-
                     let rewardPoint = this.getPointReward(idxRow, rankA.rank);
+
+                    if(salahSusunPlayerA && salahSusunPlayerB){
+                        isWin = 0;
+                    } else if(salahSusunPlayerA) {
+                        isWin = -1;
+                        rewardPoint = 6;
+                    } else if(salahSusunPlayerB) {
+                        isWin = 1;
+                        rewardPoint = 6;
+                    }
 
                     if (isWin > 0) { // player A win
                         // calculate total points
@@ -128,6 +153,20 @@ cc.Class({
         }
     },
 
+    getSalahSusun (rank, i, arr) {
+
+        let benarSusun = true; 
+
+        if (i > 0) {
+            let isWin = CardRanking.compareHands(rank, arr[i - 1]);
+            benarSusun = benarSusun ? isWin >= 0 : false;
+        } else {
+            benarSusun = true;
+        }
+
+        return benarSusun
+    },
+
     getPointReward ( rowId, winnerRank) {
         const pointList = [
             { row: 0, rank: 6, point: 3 },
@@ -188,6 +227,16 @@ cc.Class({
         newHandoutCard[idPlayer] = playerCard;
         return newHandoutCard;
     },
+    
+    determinedRankCard (rowCards) {
+        let rowCardCodes = CardRanking.generateCodeRow(rowCards);
+
+        // determined rank card arrangement
+        let hand = { rankName: "" };
+        if(rowCardCodes.length > 0) hand = CardRanking.getRank(rowCardCodes);
+        
+        return hand;
+    }
 
     // update (dt) {},
 });
