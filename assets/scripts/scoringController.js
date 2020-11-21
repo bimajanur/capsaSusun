@@ -19,6 +19,9 @@ cc.Class({
         handoutCard = this.playerAutoMove(handoutCard, 2);
         handoutCard = this.playerAutoMove(handoutCard, 3);
 
+        // save data to localStorage
+        cc.sys.localStorage.setItem("handoutCard", JSON.stringify(handoutCard));
+    
         // do the scoring
         let playerPoints = [
             { playerId: 1, rowPoint: [ 0, 0, 0 ], totalPoint: 0, salahSusun: false, },
@@ -26,6 +29,20 @@ cc.Class({
             { playerId: 3, rowPoint: [ 0, 0, 0 ], totalPoint: 0, salahSusun: false, },
             { playerId: 4, rowPoint: [ 0, 0, 0 ], totalPoint: 0, salahSusun: false, },
         ];
+        
+        for (let i = 0; i < handoutCard.length; i++){
+            
+            let idPlayer = i;
+            let deckPlayer = handoutCard[idPlayer];
+            let rowsPlayer = this.getRowCardDetail(deckPlayer);
+            
+            let rowRanksPlayer = rowsPlayer.map(this.determinedRankCard);
+            let salahSusunPlayer = !rowRanksPlayer.every(this.getSalahSusun);
+            
+            playerPoints[i].salahSusun = salahSusunPlayer;
+        }
+
+        cc.log("playerPoints", playerPoints);
   
         for (let i = 1; i < handoutCard.length; i++){
 
@@ -33,21 +50,15 @@ cc.Class({
             let deckPlayerA = handoutCard[idPlayerA];
             let rowsPlayerA = this.getRowCardDetail(deckPlayerA);
 
-            let rowRanksPlayerA = rowsPlayerA.map(this.determinedRankCard);
-            let salahSusunPlayerA = !rowRanksPlayerA.every(this.getSalahSusun);
-
             for (let j = i+1; j <= handoutCard.length; j++){
-
-                cc.log("vs", i, j);
 
                 let idPlayerB = j - 1;
                 let deckPlayerB = handoutCard[idPlayerB];
                 let rowsPlayerB = this.getRowCardDetail(deckPlayerB);
-
-                let rowRanksPlayerB = rowsPlayerB.map(this.determinedRankCard);
-                let salahSusunPlayerB = !rowRanksPlayerB.every(this.getSalahSusun);
-
-                for (let idxRow = 0; idxRow < 3; idxRow++){
+                
+                cc.log("vs", i, j);
+                
+                for (let idxRow = 0; idxRow < rowsPlayerA.length; idxRow++){
                     let rowA = rowsPlayerA[idxRow];
                     let rowB = rowsPlayerB[idxRow];
 
@@ -60,22 +71,21 @@ cc.Class({
                     let isWin = CardRanking.compareHands(rankA, rankB);
                     let rewardPoint = this.getPointReward(idxRow, rankA.rank);
 
-                    if(salahSusunPlayerA && salahSusunPlayerB){
+                    // handle scoring salah susun 
+                    if(playerPoints[idPlayerA].salahSusun && playerPoints[idPlayerB].salahSusun){
                         isWin = 0;
-
-                        playerPoints[idPlayerA].salahSusun = true;
-                        playerPoints[idPlayerB].salahSusun = true;
-                    } else if(salahSusunPlayerA) {
+                        rewardPoint = 0;
+                    } else if(playerPoints[idPlayerA].salahSusun) {
                         isWin = -1;
                         rewardPoint = 6;
-                        
-                        playerPoints[idPlayerA].salahSusun = true;
-                    } else if(salahSusunPlayerB) {
+                    } else if(playerPoints[idPlayerB].salahSusun) {
                         isWin = 1;
                         rewardPoint = 6;
-
-                        playerPoints[idPlayerB].salahSusun = true;
                     }
+
+                    cc.log("salahSusunPlayerAB", playerPoints[idPlayerA].salahSusun);
+                    cc.log("salahSusunPlayerAB", playerPoints[idPlayerB].salahSusun);
+                    cc.log("rewardPoint", rewardPoint);
 
                     if (isWin > 0) { // player A win
                         // calculate total points
@@ -120,7 +130,6 @@ cc.Class({
             let totalLabel = totalNodeLabel.getComponent(cc.Label);
             totalLabel.string = plaPo.totalPoint;
 
-            cc.log("plaPo.salahSusun", i, plaPo);
             // jika salah susun
             if(plaPo.salahSusun){
                 let salahsusunNode = pointNode.getChildByName("salahSusun");
@@ -155,6 +164,8 @@ cc.Class({
         });
             
         // smile or cry
+        cc.log("winnerResult", winnerResult);
+
         if (winnerResult.winnerIdx.includes(0)){
             let smilingNode = cc.find("Canvas/plaverAvatar/smiling");
             smilingNode.active = true;
@@ -215,6 +226,10 @@ cc.Class({
             }
         }
 
+        if(winnerIdx.length == 4){
+            winnerIdx = [];
+        }
+        
         return {winnerIdx, winnerScore}
     },
 
@@ -243,10 +258,22 @@ cc.Class({
         let playerCard = handoutCard[idPlayer];
 
         // add AI here
-
-        let newHandoutCard = handoutCard;
-        newHandoutCard[idPlayer] = playerCard;
-        return newHandoutCard;
+        let sortedPlayerCard = [...playerCard];
+        sortedPlayerCard.sort( this.compareObj );
+        
+        handoutCard[idPlayer] = sortedPlayerCard;
+        cc.log("handoutCard:", handoutCard);
+        return handoutCard;
     },
     
+    compareObj (a, b) {
+        if (a.shapeCode < b.shapeCode) { 
+            return -1;
+        }
+        if (a.shapeCode > b.shapeCode) {
+            return 1;
+        }
+        return 0;
+    }
+      
 });
