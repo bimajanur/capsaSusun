@@ -106,6 +106,16 @@ cc.Class({
             let pointNode = this.node.getChildByName("cardDeck" + (wId + 1));
             let winnerBadgeNode = pointNode.getChildByName("trophy");
             winnerBadgeNode.active = true;
+
+            let gotoX = 202; 
+            let gotoY = 97; 
+
+            winnerBadgeNode.position.x = 0;
+            winnerBadgeNode.position.y = 0;
+    
+            cc.tween(winnerBadgeNode)
+            .to(0.5, { position: cc.v2(gotoX, gotoY) })
+            .start();
         });
         
         // smile or cry

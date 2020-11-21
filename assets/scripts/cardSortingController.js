@@ -1,4 +1,3 @@
-const CardRanking = require("./lib/cardRankingHandler");
 
 cc.Class({
     extends: cc.Component,
@@ -57,7 +56,6 @@ cc.Class({
             movedCardNode.oneCard.picked = false;
 
             // handle kartu bertumpuk di placeCard, kembalikan posisi ke original
-            // TODO: data di pickedCard diupdate
             if(penghuniSebelumnya){
                 let stackCardNode = cc.find("Canvas/cardDeck/card" + (penghuniSebelumnya + 1));
                 let originalPosX = stackCardNode.oneCard.originalPosX;
@@ -78,31 +76,8 @@ cc.Class({
         // save placedIdxCard to localStorage
         cc.sys.localStorage.setItem("placedIdxCard", JSON.stringify(placedIdxCard));
 
-        // get player card
-        let playerIndex = 0;
-        let handoutCard = cc.sys.localStorage.getItem("handoutCard");
-        handoutCard = JSON.parse(handoutCard);
-        let playerCard = handoutCard[playerIndex]; 
-
-        // get placed card detail
-        let placedCardDetail = placedIdxCard.map((pcId) => {
-            return playerCard[pcId];
-        });
-        
-        // set row cards
-        let rowDetails = [
-            placedCardDetail.slice(0, 3),
-            placedCardDetail.slice(3, 8),
-            placedCardDetail.slice(8, 13)
-        ];
-        
-        let rowRanks = rowDetails.map(this.determinedRankCard);
-
-        // calculate rank label
-        rowRanks.forEach((rank, i, arr) => this.getRowRank(this.node, rank, i, arr));
-
         let isFull = false;
-        for (let i = 0; i < playerCard.length; i++){
+        for (let i = 0; i < 13; i++) {
             if (placedIdxCard[i] != undefined) isFull = true;
             else {
                 isFull = false;
@@ -114,39 +89,5 @@ cc.Class({
             doneBtnNode.active = true;
         }
     },
-
-    getRowRank (thisNode, rank, i, arr) {
-        let benarSusun = true; 
-        let rankLabelNode = thisNode.parent.getChildByName("row" + (i + 1) + "RankLabel");
-        let rankLabel = rankLabelNode.getComponent(cc.Label);
-        
-        rankLabel.string = rank.rankName;
-
-        if (i > 0) {
-            let isWin = CardRanking.compareHands(rank, arr[i - 1]);
-            benarSusun = benarSusun ? isWin >= 0 : false;
-
-            if(!benarSusun){
-                let rankLabelNodeUp = thisNode.parent.getChildByName("row" + i + "RankLabel");
-                rankLabelNodeUp.color = cc.Color.RED;
-                rankLabelNode.color = cc.Color.RED;
-            } else {
-                rankLabelNode.color = cc.Color.WHITE;
-            }
-        } else {
-            benarSusun = true;
-            rankLabelNode.color = cc.Color.WHITE;
-        }
-    },
-
-    determinedRankCard (rowCards) {
-        let rowCardCodes = CardRanking.generateCodeRow(rowCards);
-
-        // determined rank card arrangement
-        let hand = { rankName: "" };
-        if(rowCardCodes.length > 0) hand = CardRanking.getRank(rowCardCodes);
-        
-        return hand;
-    }
 
 });
