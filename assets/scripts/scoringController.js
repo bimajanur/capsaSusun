@@ -83,9 +83,9 @@ cc.Class({
                         rewardPoint = 6;
                     }
 
-                    cc.log("salahSusunPlayerAB", playerPoints[idPlayerA].salahSusun);
-                    cc.log("salahSusunPlayerAB", playerPoints[idPlayerB].salahSusun);
-                    cc.log("rewardPoint", rewardPoint);
+                    // cc.log("salahSusunPlayerAB", playerPoints[idPlayerA].salahSusun);
+                    // cc.log("salahSusunPlayerAB", playerPoints[idPlayerB].salahSusun);
+                    // cc.log("rewardPoint", rewardPoint);
 
                     if (isWin > 0) { // player A win
                         // calculate total points
@@ -259,18 +259,19 @@ cc.Class({
 
         // add AI here
         let sortedPlayerCard = [...playerCard];
-        sortedPlayerCard.sort( this.compareObj );
+        sortedPlayerCard.sort( (a,b) => this.compareObj(a,b,"numberCode") );
+        cc.log("sortedPlayerCard:", sortedPlayerCard);
         
         handoutCard[idPlayer] = sortedPlayerCard;
         cc.log("handoutCard:", handoutCard);
         return handoutCard;
     },
-    
-    compareObj (a, b) {
-        if (a.shapeCode < b.shapeCode) { 
+
+    compareObj (a, b, byProp) {
+        if (a[byProp] < b[byProp]) { 
             return -1;
         }
-        if (a.shapeCode > b.shapeCode) {
+        if (a[byProp] > b[byProp]) {
             return 1;
         }
         return 0;
