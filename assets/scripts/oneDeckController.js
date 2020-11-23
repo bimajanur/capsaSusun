@@ -1,4 +1,5 @@
 const cardHandler = require("./lib/cardDealerHandler");
+const AutoMove = require("./lib/autoMoveHandler");
 
 cc.Class({
     extends: cc.Component,
@@ -17,6 +18,9 @@ cc.Class({
         let cardDeck = cardHandler.getCardDeck(cardHandler.cardShapes, cardHandler.cardNumbers);
         let shuffledCardDeck = cardHandler.shuffleDeck(cardDeck);
         let handoutCard = cardHandler.handoutCard(shuffledCardDeck);
+
+        // do some enemy auto move
+        handoutCard = this.playerAutoMove(handoutCard, 0);
 
         // save to localStorage
         cc.sys.localStorage.setItem("handoutCard", JSON.stringify(handoutCard));
@@ -38,4 +42,16 @@ cc.Class({
         }
 
     },
+    
+    playerAutoMove (handoutCard, idPlayer) {
+        let playerCard = handoutCard[idPlayer];
+
+        // add AI here
+        let logicFunction = AutoMove.functionList[1].func; 
+        let sortedPlayerCard = AutoMove[logicFunction](playerCard);
+        
+        handoutCard[idPlayer] = sortedPlayerCard;
+        return handoutCard;
+    },
+
 });
